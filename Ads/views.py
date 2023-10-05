@@ -1,44 +1,36 @@
 from django.shortcuts import render
 from django.views.generic import ListView
-
 from .models import Land, Villa, Apartment
 
 
-class showAdsView(ListView):
+def showLandAds(request):
 
-    model = None
-    template_name = 'Ads/ShowAds.html'
-    context_object_name = 'Ads'
+    lands = Land.objects.all()
 
-    def get_queryset(self):
-        lands = Land.objects.all()
-        villas = Villa.objects.all()
-        apartments = Apartment.objects.all()
+    context = {
+        'lands': lands,
+    }
 
-        allAds = lands.union(villas, apartments, all=True)
-
-        return allAds
+    return render(request, 'Ads/LandAds.html', context)
 
 
-class showLandView(ListView):
-    model = Land
-    template_name = 'Ads/ShowAds.html'
-    queryset = Land.objects.all()
-    context_object_name = 'lands'
-    paginate_by = 10
+def showVillaAds(request):
+
+    villas = Villa.objects.all()
+
+    context = {
+        'villas': villas,
+    }
+
+    return render(request, 'Ads/VillaAds.html', context)
 
 
-class showVillaView(ListView):
-    model = Villa
-    template_name = 'Ads/ShowAds.html'
-    queryset = Villa.objects.all()
-    context_object_name = 'villas'
-    paginate_by = 10
+def showApartmentAds(request):
 
+    apartments = Apartment.objects.all()
 
-class showApartmentView(ListView):
-    model = Apartment
-    template_name = 'Ads/ShowAds.html'
-    queryset = Apartment.objects.all()
-    context_object_name = 'apartments'
-    paginate_by = 10
+    context = {
+        'apartments': apartments,
+    }
+
+    return render(request, 'Ads/ApartmentAds.html', context)

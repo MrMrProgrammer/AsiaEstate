@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+    <style>
+        .item-box {
+            background-color: gainsboro;
+            border: 1px solid black;
+            border-radius: 10px;
+            text-align: center;
+            vertical-align: middle;
+            padding: 10px;
+        }
+    </style>
+    <title>Show Ads</title>
+</head>
+<body>
+
+    {% for land in lands %}
+        <a href="/Ads/{{ land.en_db_name }}/{{ land.id }}">
+            <div class="item-box">
+                {{ land.title }}
+                <br>
+            </div>
+        </a>
+    {% endfor %}
+
+</body>
+</html>

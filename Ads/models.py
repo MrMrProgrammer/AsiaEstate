@@ -6,7 +6,8 @@ from jdatetime import datetime as jdatetime
 
 
 class Category(models.Model):
-    category = models.CharField(max_length=20)
+    fa_category = models.CharField(max_length=20, verbose_name='نوع آگهی (فارسی)')
+    en_category = models.CharField(max_length=20, verbose_name='نوع آگهی (انگلیسی)')
 
     class Meta:
         db_table = 'Category'
@@ -14,10 +15,14 @@ class Category(models.Model):
         verbose_name_plural = 'دسته بندی‌ ها'
 
     def __str__(self):
-        return self.category
+        return self.fa_category
 
 
 class Land(models.Model):
+
+    fa_db_name = models.CharField(max_length=20, editable=False, default='زمین', verbose_name='نام جدول (فارسی)')
+    en_db_name = models.CharField(max_length=20, editable=False, default='Land', verbose_name='نام جدول (انگلیسی)')
+
     title = models.CharField(max_length=200, verbose_name='عنوان')
 
     category = models.ForeignKey(Category, on_delete=models.CASCADE, blank=True, null=True, verbose_name='دسته بندی')
@@ -70,7 +75,13 @@ class Land(models.Model):
 
 
 class Villa(models.Model):
+
+    fa_db_name = models.CharField(max_length=20, editable=False, default='ویلا', verbose_name='نام جدول (فارسی)')
+    en_db_name = models.CharField(max_length=20, editable=False, default='Villa', verbose_name='نام جدول (انگلیسی)')
+
     title = models.CharField(max_length=200, verbose_name='عنوان')
+
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, blank=True, null=True, verbose_name='دسته بندی')
 
     landSize = models.IntegerField(blank=True, null=True, verbose_name='متراژ زمین')
 
@@ -115,16 +126,22 @@ class Villa(models.Model):
     def __str__(self):
         return self.title
 
-    def save(self, *args, **kwargs):
-        tehran_timezone = pytz.timezone('Asia/Tehran')
-        utc_now = jdatetime.now(pytz.utc)
-        tehran_now = utc_now.astimezone(tehran_timezone)
-        self.dateTimeCreated = tehran_now
-        super(Villa, self).save(*args, **kwargs)
+    # def save(self, *args, **kwargs):
+    #     tehran_timezone = pytz.timezone('Asia/Tehran')
+    #     utc_now = jdatetime.now(pytz.utc)
+    #     tehran_now = utc_now.astimezone(tehran_timezone)
+    #     self.dateTimeCreated = tehran_now
+    #     super(Villa, self).save(*args, **kwargs)
 
 
 class Apartment(models.Model):
+
+    fa_db_name = models.CharField(max_length=20, editable=False, default='آپارتمان', verbose_name='نام جدول (فارسی)')
+    en_db_name = models.CharField(max_length=20, editable=False, default='Apartment', verbose_name='نام جدول (انگلیسی)')
+
     title = models.CharField(max_length=200, verbose_name='عنوان')
+
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, blank=True, null=True, verbose_name='دسته بندی')
 
     NumberOfRooms = models.IntegerField(blank=True, null=True, verbose_name='تعداد اتاق خواب')
 
@@ -175,9 +192,9 @@ class Apartment(models.Model):
     def __str__(self):
         return self.title
 
-    def save(self, *args, **kwargs):
-        tehran_timezone = pytz.timezone('Asia/Tehran')
-        utc_now = jdatetime.now(pytz.utc)
-        tehran_now = utc_now.astimezone(tehran_timezone)
-        self.dateTimeCreated = tehran_now
-        super(Apartment, self).save(*args, **kwargs)
+    # def save(self, *args, **kwargs):
+    #     tehran_timezone = pytz.timezone('Asia/Tehran')
+    #     utc_now = jdatetime.now(pytz.utc)
+    #     tehran_now = utc_now.astimezone(tehran_timezone)
+    #     self.dateTimeCreated = tehran_now
+    #     super(Apartment, self).save(*args, **kwargs)
