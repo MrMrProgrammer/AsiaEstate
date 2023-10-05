@@ -5,16 +5,30 @@ import pytz
 from jdatetime import datetime as jdatetime
 
 
+class Category(models.Model):
+    category = models.CharField(max_length=20)
+
+    class Meta:
+        db_table = 'Category'
+        verbose_name = 'دسته بندی'
+        verbose_name_plural = 'دسته بندی‌ ها'
+
+    def __str__(self):
+        return self.category
+
+
 class Land(models.Model):
-    title = models.CharField(max_length=200, blank=True, null=True, verbose_name='عنوان')
+    title = models.CharField(max_length=200, verbose_name='عنوان')
+
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, blank=True, null=True, verbose_name='دسته بندی')
 
     size = models.IntegerField(blank=True, null=True, verbose_name='متراژ زمین')
 
-    PricePerMeter = models.DecimalField(max_digits=12, decimal_places=2, blank=True, null=True,
-                                        verbose_name='قیمت هر متر')
+    PricePerMeter = models.BigIntegerField(blank=True, null=True,
+                                           verbose_name='قیمت هر متر')
 
-    totalPrice = models.DecimalField(max_digits=12, decimal_places=2, blank=True, null=True,
-                                     verbose_name='قیمت کل')
+    totalPrice = models.BigIntegerField(blank=True, null=True,
+                                        verbose_name='قیمت کل')
 
     address = models.TextField(blank=True, null=True, verbose_name='آدرس')
 
@@ -47,16 +61,16 @@ class Land(models.Model):
     def __str__(self):
         return self.title
 
-    def save(self, *args, **kwargs):
-        tehran_timezone = pytz.timezone('Asia/Tehran')
-        utc_now = jdatetime.now(pytz.utc)
-        tehran_now = utc_now.astimezone(tehran_timezone)
-        self.dateTimeCreated = tehran_now
-        super(Land, self).save(*args, **kwargs)
+    # def save(self, *args, **kwargs):
+    #     tehran_timezone = pytz.timezone('Asia/Tehran')
+    #     utc_now = jdatetime.now(pytz.utc)
+    #     tehran_now = utc_now.astimezone(tehran_timezone)
+    #     self.dateTimeCreated = tehran_now
+    #     super(Land, self).save(*args, **kwargs)
 
 
 class Villa(models.Model):
-    title = models.CharField(max_length=200, blank=True, null=True, verbose_name='عنوان')
+    title = models.CharField(max_length=200, verbose_name='عنوان')
 
     landSize = models.IntegerField(blank=True, null=True, verbose_name='متراژ زمین')
 
@@ -64,11 +78,11 @@ class Villa(models.Model):
 
     NumberOfRooms = models.IntegerField(blank=True, null=True, verbose_name='تعداد اتاق خواب')
 
-    PricePerMeter = models.DecimalField(max_digits=12, decimal_places=2, blank=True, null=True,
-                                        verbose_name='قیمت هر متر')
+    PricePerMeter = models.BigIntegerField(blank=True, null=True,
+                                           verbose_name='قیمت هر متر')
 
-    totalPrice = models.DecimalField(max_digits=12, decimal_places=2, blank=True, null=True,
-                                     verbose_name='قیمت کل')
+    totalPrice = models.BigIntegerField(blank=True, null=True,
+                                        verbose_name='قیمت کل')
 
     address = models.TextField(blank=True, null=True, verbose_name='آدرس')
 
@@ -110,7 +124,7 @@ class Villa(models.Model):
 
 
 class Apartment(models.Model):
-    title = models.CharField(max_length=200, blank=True, null=True, verbose_name='عنوان')
+    title = models.CharField(max_length=200, verbose_name='عنوان')
 
     NumberOfRooms = models.IntegerField(blank=True, null=True, verbose_name='تعداد اتاق خواب')
 
@@ -124,11 +138,11 @@ class Apartment(models.Model):
 
     have_balcony = models.BooleanField(blank=True, null=True, verbose_name='آیا بالکن دارد ؟')
 
-    PricePerMeter = models.DecimalField(max_digits=12, decimal_places=2, blank=True, null=True,
-                                        verbose_name='قیمت هر متر')
+    PricePerMeter = models.BigIntegerField(blank=True, null=True,
+                                           verbose_name='قیمت هر متر')
 
-    totalPrice = models.DecimalField(max_digits=12, decimal_places=2, blank=True, null=True,
-                                     verbose_name='قیمت کل')
+    totalPrice = models.BigIntegerField(blank=True, null=True,
+                                        verbose_name='قیمت کل')
 
     address = models.TextField(blank=True, null=True, verbose_name='آدرس')
 

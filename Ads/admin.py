@@ -26,3 +26,4 @@ class ShowApartment(admin.ModelAdmin):
 admin.site.register(models.Land, ShowLand)
 admin.site.register(models.Villa, ShowVilla)
 admin.site.register(models.Apartment, ShowApartment)
+admin.site.register(models.Category)
