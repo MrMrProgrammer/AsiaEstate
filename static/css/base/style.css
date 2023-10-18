@@ -1,0 +1,89 @@
+@font-face {
+    font-family: yekan;
+    src: url("../../font/iranyekanwebboldfanum.ttf");
+    /*src: url("fonts/iranyekanwebboldfanum.ttf");*/
+}
+body,h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, span, .popover, p, input{
+    font-family: yekan, roboto, serif !important;
+    letter-spacing: 0 !important;
+    font-weight: 500;
+    direction: rtl;
+}
+
+.menu a{
+    text-decoration: none;
+    color: rgb(10, 102, 10);
+}
+.menu li{
+    list-style: none;
+}
+.menu{
+    width: 100%;
+    border-radius: 15px;
+}
+.menu-member{
+    flex-direction: column;
+    gap: 20px;
+}
+.menu-member{
+    padding: 30px;
+}
+.box-photo{
+    margin-top: 56px;
+    width: 100%;
+    height: 300px;
+    background-color: rgb(39, 164, 39);
+}
+.btn{
+    width: 80px;
+}
+.box-agahi{
+    width: 75%;
+    border: 1px solid #198754;
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 15px;
+    transition: all 0.3s;
+}
+.photo-agahi{
+    width: 180px;
+    height: 160px;
+    
+}
+.photo-agahi img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.photo-box{
+    align-items: center;
+    justify-content: center;
+}
+.information p:nth-of-type(4){
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.information p span{
+    font-size: 15px;
+    color: rgb(112, 112, 112);
+    font-weight: 300;
+    line-height: 1.35;
+}
+.mablagh{
+    color: #0a660a !important;
+    font-size: 21px !important;
+    margin-left: 6px;
+    margin-right: 6px;
+}
+.address{
+    font-size: 15px;
+    color: rgb(53, 50, 50);
+}
+.box-agahi:hover{
+  box-shadow:0 0.5rem 1rem rgba(0,0,0,.15);
+}
+.address svg{
+    vertical-align: -3.3
+}

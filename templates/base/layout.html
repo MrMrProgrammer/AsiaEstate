@@ -1,0 +1,35 @@
+{% load static %}
+
+<!doctype html>
+<html lang="fa" dir="rtl">
+
+    <head>
+        <link rel="stylesheet" href="{% static 'css/base/bootstrap.rtl.min.css' %}"/>
+        <link rel="stylesheet" href="{% static 'css/base/style.css' %}"/>
+        <meta charset="utf-8"/>
+
+        {% block header %}{% endblock %}
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="row mt-5">
+                <div class="col-3">
+                    <div class="menu bg-light">
+                        <ul class="d-flex menu-member">
+                            <li><a href="#">صفحه اصلی</a></li>
+                            <li><a href="#">آگهی ها</a></li>
+                            <li><a href="#">گالری</a></li>
+                            <li><a href="#">تماس با ما</a></li>
+                            <li><a href="#">درباره ما</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                {% block main %}{% endblock %}
+
+            </div>
+        </div>
+    </body>
+
+</html>
