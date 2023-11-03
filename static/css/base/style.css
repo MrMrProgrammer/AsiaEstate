@@ -1,7 +1,6 @@
 @font-face {
     font-family: yekan;
     src: url("../../font/iranyekanwebboldfanum.ttf");
-    /*src: url("fonts/iranyekanwebboldfanum.ttf");*/
 }
 body,h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, span, .popover, p, input{
     font-family: yekan, roboto, serif !important;
@@ -86,4 +85,81 @@ body,h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, span, .popover, p, in
 }
 .address svg{
     vertical-align: -3.3
+}
+.page-number{
+    width: 70%;
+    justify-content: center;
+    margin-top: 20px;
+}
+.page-number a{
+    color: #0a660a;
+    border: 0.5px solid #0a660a;
+}
+.page-number a:hover{
+    color: #0a660a;
+    border: 0.5px solid #0a660a;
+}
+
+@media (max-width:1199px){
+    .box-agahi{
+        width: 90%;
+    }
+    .page-number{
+        width: 90%;
+    }
+} 
+@media(max-width:991px){
+    .box-agahi{
+        width: 100%;
+    }
+    .page-number{
+        width: 100%;
+    }
+}
+
+
+@media(max-width:521px){
+   .photo-box{
+        min-width: 170px;
+   }
+   .text{
+    width: calc(100% - 170px);
+   }
+}
+@media(max-width:460px){
+    .row-agahi{
+        flex-direction: column;
+    }
+    .photo-box{
+        order:1;
+        width:100%;
+        justify-content: center;
+    }
+    .text{
+        margin-top:1rem;
+        order: 2;
+        width: 100%;
+    }
+    .photo-agahi{
+        width:160px;
+    }
+    .agahiha{
+        padding-right: 30px;
+        padding-left: 30px;
+    }
+}
+.address{
+    margin-bottom: 0;
+}
+@media(max-width:767px){
+   
+}
+.navbar{
+    border-radius: 15px;
+}
+@media(max-width:768px){
+    .menu-member{
+        padding: 20px 3px 10px;
+        margin-bottom: 0;
+    }
 }
