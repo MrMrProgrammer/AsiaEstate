@@ -1,17 +1,19 @@
 {% load static %}
 
 <html lang="fa" dir="rtl">
-
   <head>
     <link rel="stylesheet" href="{% static 'css/base/bootstrap.rtl.min.css' %}" />
     <link rel="stylesheet" href="{% static 'css/base/style.css' %}" />
+
+    {% block headerLinks %}{% endblock %}
+
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   </head>
-
   <body>
     <div class="container">
       <div class="row mt-5">
+
         <div class="col-md-3">
             <div class="navbar navbar-expand-md bg-light ps-md-0 ps-2 mb-3">
             <button class="navbar-toggler shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -19,7 +21,7 @@
             </button>
             <div class="menu collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="d-flex menu-member">
-                <li><a href="#">صفحه اصلی</a></li>
+                <li><a href="{% url 'home' %}">صفحه اصلی</a></li>
                 <li><a href="#">آگهی ها</a></li>
                 <li><a href="#">گالری</a></li>
                 <li><a href="#">تماس با ما</a></li>
@@ -27,152 +29,70 @@
                 </ul>
             </div>
             <a class="navbar-brand d-md-none" href="#">
-                <img src="images/bootstrap-logo.svg" alt="" width="45px">
+                <img src="{% static 'image/logonomy-1699124425441-removebg-preview.png' %}" alt="" width="55px">
             </a>
             </div>
         </div>
-        {% block main %}{% endblock %}
-{#        <div class="col-md-9 col-12 agahiha">#}
-{#          <div class="buttons">#}
-{#            <button type="button" class="btn btn-success">همه</button>#}
-{#            <button type="button" class="btn btn-outline-success">زمین</button>#}
-{#            <button type="button" class="btn btn-outline-success">ویلا</button>#}
-{#            <button type="button" class="btn btn-outline-success">#}
-{#              آپارتمان#}
-{#            </button>#}
-{#          </div>#}
-{#          <div class="box-agahi">#}
-{#            <div class="row row-agahi">#}
-{#              <div class="col-lg-9 col-8 text">#}
-{#                <div class="information">#}
-{#                  <p>عنوان:<span>فروش آپارتمان امپریال</span></p>#}
-{#                  <p>مبلغ:<span class="mablagh">19.8</span>میلیارد تومان</p>#}
-{#                  <p>متراژ:172 متر</p>#}
-{#                  <p class="address">#}
-{#                    <svg#}
-{#                      xmlns="http://www.w3.org/2000/svg"#}
-{#                      width="16"#}
-{#                      height="16"#}
-{#                      fill="currentColor"#}
-{#                      class="bi bi-geo-alt"#}
-{#                      viewBox="0 0 16 16"#}
-{#                    >#}
-{#                      <path#}
-{#                        d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"#}
-{#                      />#}
-{#                      <path#}
-{#                        d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"#}
-{#                      />#}
-{#                    </svg>#}
-{#                    آدرس:چیتگر بلوار کوهک نسیم بیستم چیتگر بلوار کوهک نسیم بیستم#}
-{#                    چیتگر بلوار کوهک نسیم بیستم#}
-{#                  </p>#}
-{#                </div>#}
-{#              </div>#}
-{##}
-{#              <div class="col-lg-3 col-4 d-flex photo-box">#}
-{#                <div class="photo-agahi">#}
-{#                  <img#}
-{#                    src="images/462C2598-A302-437E-B6E1-7507C88C1D1D.jpg"#}
-{#                    alt="عکس"#}
-{#                  />#}
-{#                </div>#}
-{#              </div>#}
-{#            </div>#}
-{#          </div>#}
-{#          <div class="box-agahi">#}
-{#            <div class="row row-agahi">#}
-{#              <div class="col-lg-9 col-8 text">#}
-{#                <div class="information">#}
-{#                  <p>عنوان:<span>فروش آپارتمان کادوس</span></p>#}
-{#                  <p>مبلغ:<span class="mablagh">20</span>میلیارد تومان</p>#}
-{#                  <p>متراژ:134 متر</p>#}
-{#                  <p class="address">#}
-{#                    <svg#}
-{#                      xmlns="http://www.w3.org/2000/svg"#}
-{#                      width="16"#}
-{#                      height="16"#}
-{#                      fill="currentColor"#}
-{#                      class="bi bi-geo-alt"#}
-{#                      viewBox="0 0 16 16"#}
-{#                    >#}
-{#                      <path#}
-{#                        d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"#}
-{#                      />#}
-{#                      <path#}
-{#                        d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"#}
-{#                      />#}
-{#                    </svg>#}
-{#                    آدرس:چیتگر بلوار کوهک نسیم شانزدهم چیتگر بلوار کوهک نسیم#}
-{#                    شانزدهم چیتگر بلوار کوهک نسیم شانزدهم#}
-{#                  </p>#}
-{#                </div>#}
-{#              </div>#}
-{##}
-{#              <div class="col-lg-3 col-4 d-flex photo-box">#}
-{#                <div class="photo-agahi">#}
-{#                  <img src="images/2.jpg" alt="عکس" />#}
-{#                </div>#}
-{#              </div>#}
-{#            </div>#}
-{#          </div>#}
-{#          <div class="box-agahi">#}
-{#            <div class="row row-agahi">#}
-{#              <div class="col-lg-9 col-8 text">#}
-{#                <div class="information">#}
-{#                  <p>عنوان:<span>فروش آپارتمان آترا</span></p>#}
-{#                  <p>مبلغ:<span class="mablagh">21.4</span>میلیارد تومان</p>#}
-{#                  <p>متراژ:150 متر</p>#}
-{#                  <p class="address">#}
-{#                    <svg#}
-{#                      xmlns="http://www.w3.org/2000/svg"#}
-{#                      width="16"#}
-{#                      height="16"#}
-{#                      fill="currentColor"#}
-{#                      class="bi bi-geo-alt"#}
-{#                      viewBox="0 0 16 16"#}
-{#                    >#}
-{#                      <path#}
-{#                        d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"#}
-{#                      />#}
-{#                      <path#}
-{#                        d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"#}
-{#                      />#}
-{#                    </svg>#}
-{#                    آدرس:چیتگر بلوار کوهک نسیم بیستم چیتگر بلوار کوهک نسیم بیستم#}
-{#                    چیتگر بلوار کوهک نسیم بیستم#}
-{#                  </p>#}
-{#                </div>#}
-{#              </div>#}
-{##}
-{#              <div class="col-lg-3 col-4 d-flex photo-box">#}
-{#                <div class="photo-agahi">#}
-{#                  <img src="images/3.jpg" alt="عکس" />#}
-{#                </div>#}
-{#              </div>#}
-{#            </div>#}
-{#          </div>#}
-{#          <nav aria-label="Page navigation example">#}
-{#            <ul class="pagination page-number">#}
-{#                <li class="page-item">#}
-{#                    <a class="page-link" href="#" aria-label="Previous">#}
-{#                    <span aria-hidden="true">&laquo;</span>#}
-{#                    </a>#}
-{#                </li>#}
-{#                <li class="page-item"><a class="page-link" href="#">1</a></li>#}
-{#                <li class="page-item"><a class="page-link" href="#">2</a></li>#}
-{#                <li class="page-item"><a class="page-link" href="#">3</a></li>#}
-{#                <li class="page-item">#}
-{#                <a class="page-link" href="#" aria-label="Next">#}
-{#                    <span aria-hidden="true">&raquo;</span>#}
-{#                </a>#}
-{#              </li>#}
-{#            </ul>#}
-{#          </nav>#}
-{#        </div>#}
-      </div>
 
+        {% block main %}{% endblock %}
+
+      </div>
+    </div>
+    <div class="footer pt-4 pb-5 mt-5 position-relative">
+      <div class="custom-shape-divider-top-1699579392">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" class="shape-fill" style="fill: #0a660a;"></path>
+        </svg>
+      </div>
+      <div class="custom-shape-divider-top-1699578703">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" class="shape-fill" style="fill: #fff;"></path>
+        </svg>
+      </div>
+      
+        <div class="footer-info container pt-5">
+          <div class="row">
+          <div class="col-md-4 col-12 mt-3 d-flex flex-column gap-4">
+            <img src="{% static 'image/logonomy-1699124425441-removebg-preview.png' %}" alt="" width="100">
+            <p class="mb-0">وبسایت املاک آسیا سامانه خرید، فروش، رهن و اجاره هر نوع ملک در تهران، اصفهان، کیش و سایر شهر های ایران می باشد.</p>
+          </div>
+          <div class="col-md-4 col-sm-6 col-12 d-flex flex-column gap-4">
+            <h4 class="mt-md-3 mt-4">آدرس</h4>
+            <div class="location-box d-flex flex-column justify-content-center mt-md-3 mt-0 gap-2">
+              <div class="location d-flex gap-1">
+              <img src="{% static 'images/icons8-location-48.png' %}" alt="" width="25" height="25">
+              <p class="mb-0">نشانی: شهرستان،خیابان استاد معین،بعد از مدرسه</p>
+              </div>
+              <div class="location-map d-flex gap-1">
+              <img src="{% static 'image/icons8-map-64.png' %}" alt="" width="28" height="28">
+              <p class="mb-0 lh-lg">مشاهده بر روی نقشه</p>
+              </div>
+            </div>
+            </div>
+          <div class="col-md-4 col-sm-6 col-12 d-flex flex-column gap-4">
+            
+            <h4 class="mt-md-3 mt-4">تماس با ما</h4>
+            <div class="number-box d-flex align-items-center gap-2 justify-content-end mt-md-3 mt-0">
+              <div class="numbers d-flex flex-column align-items-end">
+              <p class="mb-0">09122112759-09127692986</p>
+              <p class="mb-0">013-34533913</p>
+              </div>
+              <img src="{% static 'image/icons8-phone-100 (2).png' %}" alt="" width="32" height="32">
+            </div>
+            <div class="social-media d-flex justify-content-end pe-2 gap-2">
+              <img src="{% static 'image/icons8-instagram-50 (1).png' %}" alt="" width="35" height="35">
+              <img src="{% static 'image/icons8-telegram-50.png' %}" alt="" width="35" height="35">
+              <img src="{% static 'image/icons8-whatsapp-50.png' %}" alt="" width="35" height="35">
+
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="footer-img position-absolute">
+        <img src="{% static 'image/footerbg.png' %}" alt="" width="180">
+        </div>
     </div>
     <script src="{% static 'js/base/bootstrap.bundle.min.js' %}"></script>
   </body>
 </html>
+
