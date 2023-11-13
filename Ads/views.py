@@ -3,34 +3,25 @@ from django.views.generic import ListView
 from .models import Land, Villa, Apartment
 
 
-def showLandAds(request):
-
-    lands = Land.objects.all()
-
-    context = {
-        'lands': lands,
-    }
-
-    return render(request, 'Ads/LandAds.html', context)
+class ShowLandAds(ListView):
+    model = Land
+    queryset = Land.objects.all().order_by('id')
+    template_name = 'Ads/LandAds.html'
+    context_object_name = 'lands'
+    paginate_by = 1
 
 
-def showVillaAds(request):
-
-    villas = Villa.objects.all()
-
-    context = {
-        'villas': villas,
-    }
-
-    return render(request, 'Ads/VillaAds.html', context)
+class ShowVillaAds(ListView):
+    model = Villa
+    queryset = Villa.objects.all().order_by('id')
+    template_name = 'Ads/VillaAds.html'
+    context_object_name = 'villas'
+    paginate_by = 1
 
 
-def showApartmentAds(request):
-
-    apartments = Apartment.objects.all()
-
-    context = {
-        'apartments': apartments,
-    }
-
-    return render(request, 'Ads/ApartmentAds.html', context)
+class ShowApartmentAds(ListView):
+    model = Apartment
+    queryset = Apartment.objects.all().order_by('id')
+    template_name = 'Ads/ApartmentAds.html'
+    context_object_name = 'apartments'
+    paginate_by = 1
