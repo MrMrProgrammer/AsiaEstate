@@ -53,19 +53,20 @@
         <div class="footer-info container pt-5">
           <div class="row">
           <div class="col-md-4 col-12 mt-3 d-flex flex-column gap-4">
-            <img src="{% static 'image/logonomy-1699124425441-removebg-preview.png' %}" alt="" width="100">
-            <p class="mb-0">وبسایت املاک آسیا سامانه خرید، فروش، رهن و اجاره هر نوع ملک در تهران، اصفهان، کیش و سایر شهر های ایران می باشد.</p>
+{#            <img src="{% static 'image/logonomy-1699124425441-removebg-preview.png' %}" alt="" width="100">#}
+            <img src="{% block footer_logo %}{% endblock %}" alt="" width="100">
+            <p class="mb-0">{% block site_description %}{% endblock %}</p>
           </div>
           <div class="col-md-4 col-sm-6 col-12 d-flex flex-column gap-4">
             <h4 class="mt-md-3 mt-4">آدرس</h4>
             <div class="location-box d-flex flex-column justify-content-center mt-md-3 mt-0 gap-2">
               <div class="location d-flex gap-1">
-              <img src="{% static 'images/icons8-location-48.png' %}" alt="" width="25" height="25">
-              <p class="mb-0">نشانی: شهرستان،خیابان استاد معین،بعد از مدرسه</p>
+              <img src="{% static 'image/icons8-location-48.png' %}" alt="" width="25" height="25">
+              <p class="mb-0">{% block address %}{% endblock %}</p>
               </div>
               <div class="location-map d-flex gap-1">
               <img src="{% static 'image/icons8-map-64.png' %}" alt="" width="28" height="28">
-              <p class="mb-0 lh-lg">مشاهده بر روی نقشه</p>
+              <a href="{% block location %}{% endblock %}" target="_blank" class="mb-0 lh-lg text-dark" style="text-decoration: none">مشاهده بر روی نقشه</a>
               </div>
             </div>
             </div>
@@ -74,15 +75,23 @@
             <h4 class="mt-md-3 mt-4">تماس با ما</h4>
             <div class="number-box d-flex align-items-center gap-2 justify-content-end mt-md-3 mt-0">
               <div class="numbers d-flex flex-column align-items-end">
-              <p class="mb-0">09122112759-09127692986</p>
-              <p class="mb-0">013-34533913</p>
+              <p class="mb-0">{% block phone_number %}{% endblock %}</p>
+              <p class="mb-0">{% block landline_phone %}{% endblock %}</p>
               </div>
               <img src="{% static 'image/icons8-phone-100 (2).png' %}" alt="" width="32" height="32">
             </div>
             <div class="social-media d-flex justify-content-end pe-2 gap-2">
-              <img src="{% static 'image/icons8-instagram-50 (1).png' %}" alt="" width="35" height="35">
-              <img src="{% static 'image/icons8-telegram-50.png' %}" alt="" width="35" height="35">
-              <img src="{% static 'image/icons8-whatsapp-50.png' %}" alt="" width="35" height="35">
+              <a href="{% block instagram %}{% endblock %}">
+                <img src="{% static 'image/icons8-instagram-50 (1).png' %}" alt="" width="35" height="35">
+              </a>
+
+              <a href="{% block telegram %}{% endblock %}">
+                  <img src="{% static 'image/icons8-telegram-50.png' %}" alt="" width="35" height="35">
+              </a>
+
+              <a href="{% block whatsapp %}{% endblock %}">
+                  <img src="{% static 'image/icons8-whatsapp-50.png' %}" alt="" width="35" height="35">
+              </a>
 
             </div>
           </div>

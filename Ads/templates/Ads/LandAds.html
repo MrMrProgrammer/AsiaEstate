@@ -54,7 +54,7 @@
         <nav aria-label="Page navigation example">
             <ul class="pagination page-number">
 
-                {% if page_obj.has_previous %}
+                {% if lands.has_previous %}
                     <li class="page-item">
                         <a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">
                             <span aria-hidden="true">&laquo;</span>
@@ -65,11 +65,13 @@
 
                 {% for pageNumber in paginator.page_range %}
                     <li class="page-item">
-                        <a class="page-link {% if page_obj.number == pageNumber %}page_active{% endif %}" href="?page={{ pageNumber }}" {% if page_obj.number == pageNumber %}style="color: white" {% endif %}>{{ pageNumber }}</a>
+                        <a class="page-link {% if page_obj.number == pageNumber %}page_active{% endif %}"
+                           href="?page={{ pageNumber }}"
+                           {% if page_obj.number == pageNumber %}style="color: white" {% endif %}>{{ pageNumber }}</a>
                     </li>
                 {% endfor %}
 
-                {% if page_obj.has_next %}
+                {% if lands.has_next %}
                     <li class="page-item">
                         <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next">
                             <span aria-hidden="true">&raquo;</span>
@@ -81,4 +83,40 @@
 
     </div>
 
+{% endblock %}
+
+{% block site_description %}
+    {{ FooterData.site_description }}
+{% endblock %}
+
+{% block address %}
+    {{ FooterData.address }}
+{% endblock %}
+
+{% block location %}
+    {{ FooterData.location }}
+{% endblock %}
+
+{% block footer_logo %}
+    {{ FooterData.site_logo.url }}
+{% endblock %}
+
+{% block phone_number %}
+    {{ FooterData.phone_number }}
+{% endblock %}
+
+{% block landline_phone %}
+    {{ FooterData.landline_phone }}
+{% endblock %}
+
+{% block instagram %}
+    {{ FooterData.instagram }}
+{% endblock %}
+
+{% block telegram %}
+    {{ FooterData.telegram }}
+{% endblock %}
+
+{% block whatsapp %}
+    {{ FooterData.whatsapp }}
 {% endblock %}

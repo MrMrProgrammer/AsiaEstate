@@ -2,49 +2,41 @@
     font-family: yekan;
     src: url("../../font/iranyekanwebboldfanum.ttf");
 }
-
-body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, span, .popover, p, input {
+body,h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, span, .popover, p, input{
     font-family: yekan, roboto, serif !important;
     letter-spacing: 0 !important;
     font-weight: 500;
     direction: rtl;
 }
 
-.menu a {
+.menu a{
     text-decoration: none;
     color: rgb(10, 102, 10);
 }
-
-.menu li {
+.menu li{
     list-style: none;
 }
-
-.menu {
+.menu{
     width: 100%;
     border-radius: 15px;
 }
-
-.menu-member {
+.menu-member{
     flex-direction: column;
     gap: 20px;
 }
-
-.menu-member {
+.menu-member{
     padding: 30px;
 }
-
-.box-photo {
+.box-photo{
     margin-top: 56px;
     width: 100%;
     height: 300px;
     background-color: rgb(39, 164, 39);
 }
-
-.btn {
+.btn{
     width: 80px;
 }
-
-.box-agahi {
+.box-agahi{
     width: 75%;
     border: 1px solid #198754;
     margin-top: 20px;
@@ -52,160 +44,125 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, span, .popover, p, i
     border-radius: 15px;
     transition: all 0.3s;
 }
-
-.photo-agahi {
+.photo-agahi{
     width: 180px;
     height: 160px;
 
 }
-
-.photo-agahi img {
+.photo-agahi img{
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: 10px;
 }
-
-.photo-box {
+.photo-box{
     align-items: center;
     justify-content: center;
 }
-
-.information p:nth-of-type(4) {
+.information p:nth-of-type(4){
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
 }
-
-.information p span {
+.information p span{
     font-size: 15px;
     color: rgb(112, 112, 112);
     font-weight: 300;
     line-height: 1.35;
 }
-
-.mablagh {
+.mablagh{
     color: #0a660a !important;
     font-size: 21px !important;
     margin-left: 6px;
     margin-right: 6px;
 }
-
-.address {
+.address{
     font-size: 15px;
     color: rgb(53, 50, 50);
 }
-
-.box-agahi:hover {
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, .15);
+.box-agahi:hover{
+  box-shadow:0 0.5rem 1rem rgba(0,0,0,.15);
 }
-
-.address svg {
+.address svg{
     vertical-align: -3.3
 }
-
-.page-number {
+.page-number{
     width: 70%;
     justify-content: center;
     margin-top: 20px;
 }
-
-.page-number a {
+.page-number a{
+    color: #0a660a;
+    border: 0.5px solid #0a660a;
+}
+.page-number a:hover{
     color: #0a660a;
     border: 0.5px solid #0a660a;
 }
 
-.page-number a:hover {
-    color: #0a660a;
-    border: 0.5px solid #0a660a;
-}
-
-@media (max-width: 1199px) {
-    .box-agahi {
+@media (max-width:1199px){
+    .box-agahi{
         width: 90%;
     }
-
-    .page-number {
+    .page-number{
         width: 90%;
     }
 }
-<<<<<<< HEAD
 @media(max-width:991px){
     .box-agahi{
-=======
-
-@media (max-width: 991px) {
-    .box-agahi {
->>>>>>> 7ca900d3b0ab6a417278e0a42c672283ba63283f
         width: 100%;
     }
-
-    .page-number {
+    .page-number{
         width: 100%;
     }
 }
 
 
-@media (max-width: 521px) {
-    .photo-box {
+@media(max-width:521px){
+   .photo-box{
         min-width: 170px;
-    }
-
-    .text {
-        width: calc(100% - 170px);
-    }
+   }
+   .text{
+    width: calc(100% - 170px);
+   }
 }
-
-@media (max-width: 460px) {
-    .row-agahi {
+@media(max-width:460px){
+    .row-agahi{
         flex-direction: column;
     }
-
-    .photo-box {
-        order: 1;
-        width: 100%;
+    .photo-box{
+        order:1;
+        width:100%;
         justify-content: center;
     }
-
-    .text {
-        margin-top: 1rem;
+    .text{
+        margin-top:1rem;
         order: 2;
         width: 100%;
     }
-
-    .photo-agahi {
-        width: 160px;
+    .photo-agahi{
+        width:160px;
     }
-
-    .agahiha {
+    .agahiha{
         padding-right: 30px;
         padding-left: 30px;
     }
 }
-
-.address {
+.address{
     margin-bottom: 0;
 }
-<<<<<<< HEAD
 @media(max-width:767px){
-=======
-
-@media (max-width: 767px) {
->>>>>>> 7ca900d3b0ab6a417278e0a42c672283ba63283f
 
 }
-
-.navbar {
+.navbar{
     border-radius: 15px;
 }
-
-@media (max-width: 768px) {
-    .menu-member {
+@media(max-width:768px){
+    .menu-member{
         padding: 20px 3px 10px;
         margin-bottom: 0;
     }
 }
-<<<<<<< HEAD
 .img-banner{
     height: 338px;
     border-radius: 15px;
@@ -339,13 +296,4 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, span, .popover, p, i
     .box-information h5{
         font-size: 15px;
     }
-=======
-
-.page_active {
-    background-color: #198754;
-}
-
-.page-link:hover {
-    background-color: #007bff;
->>>>>>> 7ca900d3b0ab6a417278e0a42c672283ba63283f
 }
