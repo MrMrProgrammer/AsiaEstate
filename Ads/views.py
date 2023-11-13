@@ -10,13 +10,15 @@ from BaseConfig.models import FooterData
 def all_ads(request):
     lands = Land.objects.all()
     villas = Villa.objects.all()
-    apartment = Apartment.objects.all()
+    apartments = Apartment.objects.all()
+    footer_data = FooterData.objects.filter(is_active=True).last()
 
     context = {
         'lands': lands,
         'villas': villas,
-        'apartment': apartment,
-        'all': zip(lands, villas, apartment)
+        'apartments': apartments,
+        'FooterData': footer_data,
+
     }
     return render(request, 'Ads/AllAds.html', context)
 
