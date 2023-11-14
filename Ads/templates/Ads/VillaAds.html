@@ -54,24 +54,24 @@
         <nav aria-label="Page navigation example">
             <ul class="pagination page-number">
 
-                {% if page_obj.has_previous %}
+                {% if villas.has_previous %}
                     <li class="page-item">
-                        <a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">
+                        <a class="page-link" href="?page={{ villas.previous_page_number }}" aria-label="Previous">
                             <span aria-hidden="true">&laquo;</span>
                         </a>
                     </li>
 
                 {% endif %}
 
-                {% for pageNumber in paginator.page_range %}
+                {% for pageNumber in villas.paginator.page_range %}
                     <li class="page-item">
-                        <a class="page-link {% if page_obj.number == pageNumber %}page_active{% endif %}" href="?page={{ pageNumber }}" {% if page_obj.number == pageNumber %}style="color: white" {% endif %}>{{ pageNumber }}</a>
+                        <a class="page-link {% if villas.number == pageNumber %}page_active{% endif %}" href="?page={{ pageNumber }}" {% if villas.number == pageNumber %}style="color: white; background-color: #0a660a" {% endif %}>{{ pageNumber }} </a>
                     </li>
                 {% endfor %}
 
-                {% if page_obj.has_next %}
+                {% if villas.has_next %}
                     <li class="page-item">
-                        <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next">
+                        <a class="page-link" href="?page={{ villas.next_page_number }}" aria-label="Next">
                             <span aria-hidden="true">&raquo;</span>
                         </a>
                     </li>

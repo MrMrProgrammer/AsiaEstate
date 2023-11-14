@@ -3,8 +3,8 @@ from operator import attrgetter
 from django.shortcuts import render
 from django.views.generic import ListView
 from .models import Land, Villa, Apartment
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from BaseConfig.models import FooterData
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
 def all_ads(request):
@@ -27,49 +27,99 @@ def all_ads(request):
 
     footer_data = FooterData.objects.filter(is_active=True).last()
 
+    ads_per_page = footer_data.per_page_item
+    paginator = Paginator(all_ads, ads_per_page)
+
+    page = request.GET.get('page')
+
+    try:
+        ads = paginator.page(page)
+    except PageNotAnInteger:
+        ads = paginator.page(1)
+    except EmptyPage:
+        ads = paginator.page(paginator.num_pages)
+
     context = {
-        'lands': lands,
-        'villas': villas,
-        'apartments': apartments,
-        'all_ads': all_ads,
-        'FooterData': footer_data
+        # 'lands': lands,
+        # 'villas': villas,
+        # 'apartments': apartments,
+        'all_ads': ads,
+        'FooterData': footer_data,
     }
+
     return render(request, 'Ads/AllAds.html', context)
 
 
-class ShowLandAds(ListView):
-    # model = Land
-    # queryset = Land.objects.all().order_by('id')
-    template_name = 'Ads/LandAds.html'
-    context_object_name = 'lands'
-    paginate_by = 1
+def show_land_ads(request):
+    lands = Land.objects.all().order_by('-id')
 
-    def get_queryset(self):
-        queryset1 = Land.objects.all().order_by('id')
-        queryset2 = FooterData.objects.filter(is_active=True)
+    footer_data = FooterData.objects.filter(is_active=True).last()
 
-        combined_queryset = queryset1.union(queryset2)
+    ads_per_page = footer_data.per_page_item
+    paginator = Paginator(lands, ads_per_page)
 
-        return combined_queryset
+    page = request.GET.get('page')
 
+    try:
+        ads = paginator.page(page)
+    except PageNotAnInteger:
+        ads = paginator.page(1)
+    except EmptyPage:
+        ads = paginator.page(paginator.num_pages)
 
-class ShowVillaAds(ListView):
-    # model = Villa
-    # queryset = Villa.objects.all().order_by('id')
-    template_name = 'Ads/VillaAds.html'
-    # context_object_name = 'villas'
-    paginate_by = 1
+    context = {
+        'lands': ads,
+        'FooterData': footer_data,
+    }
 
-    def get_queryset(self):
-        qs1 = Villa.objects.all()
-        qs2 = FooterData.objects.filter(is_active=True)
-        queryset = sorted(chain(qs1, qs2), key=attrgetter('timestamp'), )
-        return queryset
+    return render(request, 'Ads/LandAds.html', context)
 
 
-class ShowApartmentAds(ListView):
-    model = Apartment
-    queryset = Apartment.objects.all().order_by('id')
-    template_name = 'Ads/ApartmentAds.html'
-    context_object_name = 'apartments'
-    paginate_by = 1
+def show_villa_ads(request):
+    villas = Villa.objects.all().order_by('-id')
+
+    footer_data = FooterData.objects.filter(is_active=True).last()
+
+    ads_per_page = footer_data.per_page_item
+    paginator = Paginator(villas, ads_per_page)
+
+    page = request.GET.get('page')
+
+    try:
+        ads = paginator.page(page)
+    except PageNotAnInteger:
+        ads = paginator.page(1)
+    except EmptyPage:
+        ads = paginator.page(paginator.num_pages)
+
+    context = {
+        'villas': ads,
+        'FooterData': footer_data,
+    }
+
+    return render(request, 'Ads/VillaAds.html', context)
+
+
+def show_apartment_ads(request):
+    apartments = Apartment.objects.all().order_by('-id')
+
+    footer_data = FooterData.objects.filter(is_active=True).last()
+
+    ads_per_page = footer_data.per_page_item
+    paginator = Paginator(apartments, ads_per_page)
+
+    page = request.GET.get('page')
+
+    try:
+        ads = paginator.page(page)
+    except PageNotAnInteger:
+        ads = paginator.page(1)
+    except EmptyPage:
+        ads = paginator.page(paginator.num_pages)
+
+    context = {
+        'apartments': ads,
+        'FooterData': footer_data,
+    }
+
+    return render(request, 'Ads/ApartmentAds.html', context)

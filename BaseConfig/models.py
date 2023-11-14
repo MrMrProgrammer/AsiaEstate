@@ -13,6 +13,7 @@ class FooterData(models.Model):
     instagram = models.CharField(max_length=200, null=True, blank=True)
     telegram = models.CharField(max_length=200, null=True, blank=True)
     whatsapp = models.CharField(max_length=200, null=True, blank=True)
+    per_page_item = models.IntegerField(default=10)
 
     is_active = models.BooleanField(default=True)
 
