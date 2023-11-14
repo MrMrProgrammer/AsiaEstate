@@ -11,44 +11,46 @@ def all_ads(request):
     lands = Land.objects.all()
     villas = Villa.objects.all()
     apartments = Apartment.objects.all()
+
+    all_ads = []
+
+    for i in lands:
+        all_ads.append(i)
+
+    for i in villas:
+        all_ads.append(i)
+
+    for i in apartments:
+        all_ads.append(i)
+
+    all_ads = sorted(all_ads, key=lambda ad: ad.dateTimeCreated, reverse=True)
+
     footer_data = FooterData.objects.filter(is_active=True).last()
 
     context = {
         'lands': lands,
         'villas': villas,
         'apartments': apartments,
-        'FooterData': footer_data,
-
+        'all_ads': all_ads,
+        'FooterData': footer_data
     }
     return render(request, 'Ads/AllAds.html', context)
 
 
-# class ShowLandAds(ListView):
-#     model = Land
-#     queryset = Land.objects.all().order_by('id')
-#     template_name = 'Ads/LandAds.html'
-#     context_object_name = 'lands'
-#     paginate_by = 1
+class ShowLandAds(ListView):
+    # model = Land
+    # queryset = Land.objects.all().order_by('id')
+    template_name = 'Ads/LandAds.html'
+    context_object_name = 'lands'
+    paginate_by = 1
 
+    def get_queryset(self):
+        queryset1 = Land.objects.all().order_by('id')
+        queryset2 = FooterData.objects.filter(is_active=True)
 
-def ShowLandAds(request):
-    lands = Land.objects.all().order_by('id')
-    page = request.GET.get('page', 1)
+        combined_queryset = queryset1.union(queryset2)
 
-    paginator = Paginator(lands, 1)
-
-    context = {
-        'lands': lands,
-    }
-
-    try:
-        users = paginator.page(page)
-    except PageNotAnInteger:
-        users = paginator.page(1)
-    except EmptyPage:
-        users = paginator.page(paginator.num_pages)
-
-    return render(request, 'Ads/LandAds.html', context)
+        return combined_queryset
 
 
 class ShowVillaAds(ListView):
