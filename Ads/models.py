@@ -4,6 +4,16 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 import pytz
 from jdatetime import datetime as jdatetime
 
+class Currency(models.Model):
+    currency = models.CharField(max_length=20, verbose_name='واحد پول')
+
+    class Meta:
+        db_table = 'Currency'
+        verbose_name = 'واحد پولی'
+        verbose_name_plural = 'واحد های پولی'
+
+    def __str__(self):
+        return self.currency
 
 class Category(models.Model):
     fa_category = models.CharField(max_length=20, verbose_name='نوع آگهی (فارسی)')
@@ -28,6 +38,10 @@ class Land(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE, blank=True, null=True, verbose_name='دسته بندی')
 
     size = models.IntegerField(blank=True, null=True, verbose_name='متراژ زمین')
+
+    adaptive = models.BooleanField(default=False, verbose_name='آیا قیمت توافقی است ؟')
+
+    currency = models.ForeignKey(Currency, on_delete=models.CASCADE, blank=True, null=True, verbose_name='واحد پول')
 
     PricePerMeter = models.BigIntegerField(blank=True, null=True,
                                            verbose_name='قیمت هر متر')
@@ -66,13 +80,6 @@ class Land(models.Model):
     def __str__(self):
         return self.title
 
-    # def save(self, *args, **kwargs):
-    #     tehran_timezone = pytz.timezone('Asia/Tehran')
-    #     utc_now = jdatetime.now(pytz.utc)
-    #     tehran_now = utc_now.astimezone(tehran_timezone)
-    #     self.dateTimeCreated = tehran_now
-    #     super(Land, self).save(*args, **kwargs)
-
 
 class Villa(models.Model):
 
@@ -89,11 +96,19 @@ class Villa(models.Model):
 
     NumberOfRooms = models.IntegerField(blank=True, null=True, verbose_name='تعداد اتاق خواب')
 
+    adaptive = models.BooleanField(default=False, verbose_name='آیا قیمت توافقی است ؟')
+
+    currency = models.ForeignKey(Currency, on_delete=models.CASCADE, blank=True, null=True, verbose_name='واحد پول')
+
     PricePerMeter = models.BigIntegerField(blank=True, null=True,
                                            verbose_name='قیمت هر متر')
 
     totalPrice = models.BigIntegerField(blank=True, null=True,
                                         verbose_name='قیمت کل')
+
+    prepayment = models.IntegerField(blank=True, null=True, verbose_name='پیش پرداخت')
+
+    rent = models.IntegerField(blank=True, null=True, verbose_name='اجاره')
 
     address = models.TextField(blank=True, null=True, verbose_name='آدرس')
 
@@ -126,13 +141,6 @@ class Villa(models.Model):
     def __str__(self):
         return self.title
 
-    # def save(self, *args, **kwargs):
-    #     tehran_timezone = pytz.timezone('Asia/Tehran')
-    #     utc_now = jdatetime.now(pytz.utc)
-    #     tehran_now = utc_now.astimezone(tehran_timezone)
-    #     self.dateTimeCreated = tehran_now
-    #     super(Villa, self).save(*args, **kwargs)
-
 
 class Apartment(models.Model):
 
@@ -154,6 +162,10 @@ class Apartment(models.Model):
     have_parking = models.BooleanField(blank=True, null=True, verbose_name='آیا پارکینگ دارد ؟')
 
     have_balcony = models.BooleanField(blank=True, null=True, verbose_name='آیا بالکن دارد ؟')
+
+    adaptive = models.BooleanField(default=False, verbose_name='آیا قیمت توافقی است ؟')
+
+    currency = models.ForeignKey(Currency, on_delete=models.CASCADE, blank=True, null=True, verbose_name='واحد پول')
 
     PricePerMeter = models.BigIntegerField(blank=True, null=True,
                                            verbose_name='قیمت هر متر')
@@ -191,10 +203,3 @@ class Apartment(models.Model):
 
     def __str__(self):
         return self.title
-
-    # def save(self, *args, **kwargs):
-    #     tehran_timezone = pytz.timezone('Asia/Tehran')
-    #     utc_now = jdatetime.now(pytz.utc)
-    #     tehran_now = utc_now.astimezone(tehran_timezone)
-    #     self.dateTimeCreated = tehran_now
-    #     super(Apartment, self).save(*args, **kwargs)

@@ -19,8 +19,8 @@ class FooterData(models.Model):
 
     class Meta:
         db_table = 'FooterData'
-        verbose_name = 'فوتر'
-        verbose_name_plural = 'تنظیمات فوتر'
+        verbose_name = 'تنطیمات عمومی سایت'
+        verbose_name_plural = 'تنظیمات عمومی سایت'
 
 
 class HomeData(models.Model):
