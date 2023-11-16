@@ -28,6 +28,7 @@ urlpatterns = [
     path('', include('BaseConfig.urls')),
     path('Ads/', include('Ads.urls')),
     path('Gallery/', include('Gallery.urls')),
+    path('CuntactUs/', include('ContacUs.urls')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,0 +1,94 @@
+{% extends 'base/layout.html' %}
+{% load static %}
+
+{% block headerLinks %}
+    <link rel="stylesheet" href="{% static 'css/ContactUs/contactUs-style.css' %}">
+{% endblock %}
+
+{% block main %}
+
+    <div class="col-md-9">
+        <div class="contactUsForm">
+
+            <br/>
+
+            <h2 class="text-center">فرم ارتباط با ما</h2>
+
+            <br/>
+
+            <form method="post" action="{% url 'CuntactUs' %}">
+                {% csrf_token %}
+
+                <div class="row">
+                    <div class="col-12">
+                        {{ form.name }}
+                        <br/>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        {{ form.phone_number }}
+                        <br/>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        {{ form.message }}
+                        <br/>
+                    </div>
+                </div>
+
+                <div class="row text-center">
+                    <div class="col-12">
+                        <button class="btn btn-success" type="submit" style="width: 200px">ارسال پیام</button>
+                        <br/>
+                    </div>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+
+{% endblock %}
+
+
+{#-------------------------------------------------------#}
+
+{% block site_description %}
+    {{ FooterData.site_description }}
+{% endblock %}
+
+{% block address %}
+    {{ FooterData.address }}
+{% endblock %}
+
+{% block location %}
+    {{ FooterData.location }}
+{% endblock %}
+
+{% block footer_logo %}
+    {{ FooterData.site_logo.url }}
+{% endblock %}
+
+{% block phone_number %}
+    {{ FooterData.phone_number }}
+{% endblock %}
+
+{% block landline_phone %}
+    {{ FooterData.landline_phone }}
+{% endblock %}
+
+{% block instagram %}
+    {{ FooterData.instagram }}
+{% endblock %}
+
+{% block telegram %}
+    {{ FooterData.telegram }}
+{% endblock %}
+
+{% block whatsapp %}
+    {{ FooterData.whatsapp }}
+{% endblock %}
