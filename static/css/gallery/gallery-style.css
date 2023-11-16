@@ -1,0 +1,16 @@
+.image-box {
+    padding: 10px;
+    height: auto;
+    background-color: #f8f9fa;
+    border-radius: 15px;
+    border: 1px solid gainsboro;
+    margin-bottom: 15px;
+
+}
+
+.img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+    height: 250px;
+}

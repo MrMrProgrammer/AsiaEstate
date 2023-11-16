@@ -7,7 +7,7 @@ class Gallery(models.Model):
     is_active = models.BooleanField(default=True, verbose_name='فعال / غیرفعال')
 
     def __str__(self):
-        return self.image
+        return str(self.image)
 
     class Meta:
         db_table = 'Gallery'
