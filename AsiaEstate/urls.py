@@ -21,7 +21,7 @@ from django.conf import settings
 
 admin.site.site_title = "پنل ادمین املاک آسیا"
 admin.site.site_header = "پنل ادمین املاک آسیا"
-admin.site.index_title = "املاک آسیا"
+admin.site.index_title = ""
 
 urlpatterns = [
     path('admin/', admin.site.urls),

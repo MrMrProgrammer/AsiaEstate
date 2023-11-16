@@ -1,5 +1,5 @@
 from django import forms
-from .models import Message
+from .models import ContactUs
 
 
 class MessageForm(forms.ModelForm):
@@ -25,5 +25,5 @@ class MessageForm(forms.ModelForm):
     )
 
     class Meta:
-        model = Message
+        model = ContactUs
         fields = ['name', 'phone_number', 'message']
