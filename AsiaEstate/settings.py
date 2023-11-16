@@ -42,7 +42,11 @@ INSTALLED_APPS = [
 
     'Ads',
     'BaseConfig',
+<<<<<<< HEAD
     'Log',
+=======
+    'Gallery',
+>>>>>>> 8a19156 (add gallery app)
 ]
 
 MIDDLEWARE = [
