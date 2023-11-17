@@ -1,107 +1,113 @@
 {% load static %}
 
 <html lang="fa" dir="rtl">
-  <head>
-    <link rel="stylesheet" href="{% static 'css/base/bootstrap.rtl.min.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/base/style.css' %}" />
+<head>
+    <link rel="stylesheet" href="{% static 'css/base/bootstrap.rtl.min.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/base/style.css' %}"/>
 
     {% block headerLinks %}{% endblock %}
 
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  </head>
-  <body>
-    <div class="container">
-      <div class="row mt-5">
+
+    <title>{% block pageTitle %}املاک آسیا{% endblock %}</title>
+
+</head>
+<body>
+<div class="container">
+    <div class="row mt-5">
 
         <div class="col-md-3">
             <div class="navbar navbar-expand-md bg-light ps-md-0 ps-2 mb-3">
-            <button class="navbar-toggler shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="menu collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="d-flex menu-member">
-                <li><a href="{% url 'home' %}">صفحه اصلی</a></li>
-                <li><a href="{% url 'AllAds' %}">آگهی ها</a></li>
-                <li><a href="{% url 'gallery' %}">گالری</a></li>
-                <li><a href="{% url 'CuntactUs' %}">تماس با ما</a></li>
-                <li><a href="#">درباره ما</a></li>
-                </ul>
-            </div>
-            <a class="navbar-brand d-md-none" href="#">
-                <img src="{% static 'image/logonomy-1699124425441-removebg-preview.png' %}" alt="" width="55px">
-            </a>
+                <button class="navbar-toggler shadow-none" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="menu collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="d-flex menu-member">
+                        <li><a href="{% url 'home' %}">صفحه اصلی</a></li>
+                        <li><a href="{% url 'AllAds' %}">آگهی ها</a></li>
+                        <li><a href="{% url 'gallery' %}">گالری</a></li>
+                        <li><a href="{% url 'CuntactUs' %}">تماس با ما</a></li>
+                        <li><a href="{% url 'AboutUs' %}">درباره ما</a></li>
+                    </ul>
+                </div>
+                <a class="navbar-brand d-md-none" href="#">
+                    <img src="{% static 'image/logonomy-1699124425441-removebg-preview.png' %}" alt="" width="55px">
+                </a>
             </div>
         </div>
 
         {% block main %}{% endblock %}
 
-      </div>
     </div>
-    <div class="footer pt-4 pb-5 mt-5 position-relative">
-      <div class="custom-shape-divider-top-1699579392">
+</div>
+<div class="footer pt-4 pb-5 mt-5 position-relative">
+    <div class="custom-shape-divider-top-1699579392">
         <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
             <path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" class="shape-fill" style="fill: #0a660a;"></path>
         </svg>
-      </div>
-      <div class="custom-shape-divider-top-1699578703">
+    </div>
+    <div class="custom-shape-divider-top-1699578703">
         <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
             <path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" class="shape-fill" style="fill: #fff;"></path>
         </svg>
-      </div>
-      
-        <div class="footer-info container pt-5">
-          <div class="row">
-          <div class="col-md-4 col-12 mt-3 d-flex flex-column gap-4">
-{#            <img src="{% static 'image/logonomy-1699124425441-removebg-preview.png' %}" alt="" width="100">#}
-            <img src="{% block footer_logo %}{% endblock %}" alt="" width="100">
-            <p class="mb-0">{% block site_description %}{% endblock %}</p>
-          </div>
-          <div class="col-md-4 col-sm-6 col-12 d-flex flex-column gap-4">
-            <h4 class="mt-md-3 mt-4">آدرس</h4>
-            <div class="location-box d-flex flex-column justify-content-center mt-md-3 mt-0 gap-2">
-              <div class="location d-flex gap-1">
-              <img src="{% static 'image/icons8-location-48.png' %}" alt="" width="25" height="25">
-              <p class="mb-0">{% block address %}{% endblock %}</p>
-              </div>
-              <div class="location-map d-flex gap-1">
-              <img src="{% static 'image/icons8-map-64.png' %}" alt="" width="28" height="28">
-              <a href="{% block location %}{% endblock %}" target="_blank" class="mb-0 lh-lg text-dark" style="text-decoration: none">مشاهده بر روی نقشه</a>
-              </div>
-            </div>
-            </div>
-          <div class="col-md-4 col-sm-6 col-12 d-flex flex-column gap-4">
-            
-            <h4 class="mt-md-3 mt-4">تماس با ما</h4>
-            <div class="number-box d-flex align-items-center gap-2 justify-content-end mt-md-3 mt-0">
-              <div class="numbers d-flex flex-column align-items-end">
-              <p class="mb-0">{% block phone_number %}{% endblock %}</p>
-              <p class="mb-0">{% block landline_phone %}{% endblock %}</p>
-              </div>
-              <img src="{% static 'image/icons8-phone-100 (2).png' %}" alt="" width="32" height="32">
-            </div>
-            <div class="social-media d-flex justify-content-end pe-2 gap-2">
-              <a href="{% block instagram %}{% endblock %}">
-                <img src="{% static 'image/icons8-instagram-50 (1).png' %}" alt="" width="35" height="35">
-              </a>
+    </div>
 
-              <a href="{% block telegram %}{% endblock %}">
-                  <img src="{% static 'image/icons8-telegram-50.png' %}" alt="" width="35" height="35">
-              </a>
-
-              <a href="{% block whatsapp %}{% endblock %}">
-                  <img src="{% static 'image/icons8-whatsapp-50.png' %}" alt="" width="35" height="35">
-              </a>
-
+    <div class="footer-info container pt-5">
+        <div class="row">
+            <div class="col-md-4 col-12 mt-3 d-flex flex-column gap-4">
+                {#            <img src="{% static 'image/logonomy-1699124425441-removebg-preview.png' %}" alt="" width="100">#}
+                <img src="{% block footer_logo %}{% endblock %}" alt="" width="100">
+                <p class="mb-0">{% block site_description %}{% endblock %}</p>
             </div>
-          </div>
-        </div>
-        </div>
-        <div class="footer-img position-absolute">
-        <img src="{% static 'image/footerbg.png' %}" alt="" width="180">
+            <div class="col-md-4 col-sm-6 col-12 d-flex flex-column gap-4">
+                <h4 class="mt-md-3 mt-4">آدرس</h4>
+                <div class="location-box d-flex flex-column justify-content-center mt-md-3 mt-0 gap-2">
+                    <div class="location d-flex gap-1">
+                        <img src="{% static 'image/icons8-location-48.png' %}" alt="" width="25" height="25">
+                        <p class="mb-0">{% block address %}{% endblock %}</p>
+                    </div>
+                    <div class="location-map d-flex gap-1">
+                        <img src="{% static 'image/icons8-map-64.png' %}" alt="" width="28" height="28">
+                        <a href="{% block location %}{% endblock %}" target="_blank" class="mb-0 lh-lg text-dark"
+                           style="text-decoration: none">مشاهده بر روی نقشه</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 col-12 d-flex flex-column gap-4">
+
+                <h4 class="mt-md-3 mt-4">تماس با ما</h4>
+                <div class="number-box d-flex align-items-center gap-2 justify-content-end mt-md-3 mt-0">
+                    <div class="numbers d-flex flex-column align-items-end">
+                        <p class="mb-0">{% block phone_number %}{% endblock %}</p>
+                        <p class="mb-0">{% block landline_phone %}{% endblock %}</p>
+                    </div>
+                    <img src="{% static 'image/icons8-phone-100 (2).png' %}" alt="" width="32" height="32">
+                </div>
+                <div class="social-media d-flex justify-content-end pe-2 gap-2">
+                    <a href="{% block instagram %}{% endblock %}">
+                        <img src="{% static 'image/icons8-instagram-50 (1).png' %}" alt="" width="35" height="35">
+                    </a>
+
+                    <a href="{% block telegram %}{% endblock %}">
+                        <img src="{% static 'image/icons8-telegram-50.png' %}" alt="" width="35" height="35">
+                    </a>
+
+                    <a href="{% block whatsapp %}{% endblock %}">
+                        <img src="{% static 'image/icons8-whatsapp-50.png' %}" alt="" width="35" height="35">
+                    </a>
+
+                </div>
+            </div>
         </div>
     </div>
-    <script src="{% static 'js/base/bootstrap.bundle.min.js' %}"></script>
-  </body>
+    <div class="footer-img position-absolute">
+        <img src="{% static 'image/footerbg.png' %}" alt="" width="180">
+    </div>
+</div>
+<script src="{% static 'js/base/bootstrap.bundle.min.js' %}"></script>
+</body>
 </html>
 

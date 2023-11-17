@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'Log',
     'Gallery',
     'ContacUs',
+    'AboutUs',
 ]
 
 MIDDLEWARE = [

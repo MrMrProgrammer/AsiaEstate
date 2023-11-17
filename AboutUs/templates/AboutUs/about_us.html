@@ -1,0 +1,127 @@
+{% extends 'base/layout.html' %}
+{% load static %}
+
+{% block headerLinks %}
+    <link rel="stylesheet" href="{% static 'css/AboutUs/about-us-style.css' %}">
+{% endblock %}
+
+{% block pageTitle %}درباره ما | املاک آسیا{% endblock %}
+
+{% block main %}
+    <div class="col-md-6">
+
+        <div class="row">
+            <div class="col-12">
+                <div class="main-box">
+
+                    {% if about_us.image %}
+                        <div class="row text-center">
+                            <div class="col-12">
+                                <div>
+                                    <img id="image" src="{{ about_us.image.url }}"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <br/>
+                    {% endif %}
+
+                    {% if about_us.header_1 %}
+                        <div class="row">
+                            <div class="col-12">
+                                <h1>{{ about_us.header_1 }}</h1>
+                            </div>
+                        </div>
+                    {% endif %}
+
+                    {% if about_us.body_1 %}
+                        <div class="row">
+                            <div class="col-12">
+                                <p>{{ about_us.body_1 }}</p>
+                            </div>
+                        </div>
+                        <br/>
+                    {% endif %}
+
+                    {% if about_us.header_2 %}
+                        <div class="row">
+                            <div class="col-12">
+                                <h1>{{ about_us.header_2 }}</h1>
+                            </div>
+                        </div>
+                    {% endif %}
+
+                    {% if about_us.body_2 %}
+                        <div class="row">
+                            <div class="col-12">
+                                <p>{{ about_us.body_2 }}</p>
+                            </div>
+                        </div>
+                        <br/>
+                    {% endif %}
+
+                    {% if about_us.header_3 %}
+                        <div class="row">
+                            <div class="col-12">
+                                <h1>{{ about_us.header_3 }}</h1>
+                            </div>
+                        </div>
+                    {% endif %}
+
+                    {% if about_us.body_3 %}
+                        <div class="row">
+                            <div class="col-12">
+                                <p>{{ about_us.body_3 }}</p>
+                            </div>
+                        </div>
+                        <br/>
+                    {% endif %}
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-3"></div>
+
+{% endblock %}
+
+{#-------------------------------------------------------#}
+
+{% block site_description %}
+    {{ FooterData.site_description }}
+{% endblock %}
+
+{% block address %}
+    {{ FooterData.address }}
+{% endblock %}
+
+{% block location %}
+    {{ FooterData.location }}
+{% endblock %}
+
+{% block footer_logo %}
+    {{ FooterData.site_logo.url }}
+{% endblock %}
+
+{% block phone_number %}
+    {{ FooterData.phone_number }}
+{% endblock %}
+
+{% block landline_phone %}
+    {{ FooterData.landline_phone }}
+{% endblock %}
+
+{% block instagram %}
+    {{ FooterData.instagram }}
+{% endblock %}
+
+{% block telegram %}
+    {{ FooterData.telegram }}
+{% endblock %}
+
+{% block whatsapp %}
+    {{ FooterData.whatsapp }}
+{% endblock %}

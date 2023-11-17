@@ -1,0 +1,13 @@
+.main-box {
+    background-color: #f8f9fa;
+    padding: 10px;
+    border-radius: 15px;
+    border: 1px solid #198754;
+}
+
+#image {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+
+}
