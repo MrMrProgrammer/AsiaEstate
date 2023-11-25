@@ -18,10 +18,13 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
+from BaseConfig.views import custom_404
 
 admin.site.site_title = "پنل ادمین املاک آسیا"
 admin.site.site_header = "پنل ادمین املاک آسیا"
 admin.site.index_title = ""
+
+handler404 = 'BaseConfig.views.custom_404'
 
 urlpatterns = [
     path('admin/', admin.site.urls),
