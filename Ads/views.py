@@ -5,6 +5,7 @@ from django.views.generic import ListView
 from .models import Land, Villa, Apartment
 from BaseConfig.models import FooterData
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.http import HttpResponseNotFound
 
 
 def all_ads(request):
@@ -123,3 +124,27 @@ def show_apartment_ads(request):
     }
 
     return render(request, 'Ads/ApartmentAds.html', context)
+
+
+def show_single_ad(requesst, db_name, ad_id):
+    if db_name == 'Land':
+
+        single_ad = Land.objects.filter(id=ad_id).first()
+
+    elif db_name == 'Villa':
+        single_ad = Villa.objects.filter(id=ad_id).first()
+
+    elif db_name == 'Apartment':
+        single_ad = Apartment.objects.filter(id=ad_id).first()
+
+    else:
+        return HttpResponseNotFound()
+
+    footer_data = FooterData.objects.filter(is_active=True).last()
+
+    context = {
+        'single_ad': single_ad,
+        'FooterData': footer_data,
+    }
+
+    return render(requesst, 'Ads/ShowPerAd.html', context)
