@@ -1,6 +1,6 @@
 @font-face {
     font-family: yekan;
-    src: url("../../font/iranyekanwebboldfanum.ttf");
+    src: url("../../fonts/iranyekanwebboldfanum.ttf");
 }
 body,h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, span, .popover, p, input{
     font-family: yekan, roboto, serif !important;
@@ -47,7 +47,7 @@ body,h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, span, .popover, p, in
 .photo-agahi{
     width: 180px;
     height: 160px;
-
+    
 }
 .photo-agahi img{
     width: 100%;
@@ -107,7 +107,7 @@ body,h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, span, .popover, p, in
     .page-number{
         width: 90%;
     }
-}
+} 
 @media(max-width:991px){
     .box-agahi{
         width: 100%;
@@ -151,13 +151,18 @@ body,h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, span, .popover, p, in
 .address{
     margin-bottom: 0;
 }
-@media(max-width:767px){
-
+@media (max-width: 767px){
+   .box-detail p, .address p , .price p{
+    font-size: 14px !important;
+     }
+     .box-detail h5{
+        font-size: 17px;
+     }
 }
 .navbar{
     border-radius: 15px;
 }
-@media(max-width:768px){
+@media (max-width:768px){
     .menu-member{
         padding: 20px 3px 10px;
         margin-bottom: 0;
@@ -295,5 +300,56 @@ body,h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, span, .popover, p, in
 @media(max-width:578px){
     .box-information h5{
         font-size: 15px;
+    }
+}
+.box-detail{
+    border: 1px solid#0a660a;
+    border-radius: 15px;
+}
+.text-gray-400 {
+    --tw-text-opacity: 1;
+    color: rgb(156 163 175/var(--tw-text-opacity));
+}
+.text-14 {
+    font-size: 14px;
+}
+.tozihat{
+    width: 180px;
+}
+.price p{
+    font-size: 15px;
+}
+hr{
+    color: #0a660a;
+}
+@media(max-width:1199px){
+    .main-info{
+        font-size: 15px;
+    }
+}
+.tozihat small{
+    line-height: 26px;
+}
+.date{
+    font-size: 14px;
+}
+.address{
+    border: 1px solid#0a660a;
+    border-radius: 15px;
+}
+@media(min-width:576px){
+    .price .row{
+        gap:8px;
+    }
+}
+@media(max-width:460px){
+    .box-detail p , .address p, .box-detail small{
+        font-size: 12px !important;
+    }
+}
+@media(max-width:425px){
+    .price-span{
+        flex-direction: column;
+        gap: 8px;
     }
 }
