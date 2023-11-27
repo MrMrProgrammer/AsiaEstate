@@ -15,7 +15,7 @@
 
         {% for apartment in all_ads %}
 
-            <a href="{% url 'signle-ad' db_name=apartment.en_db_name ad_id=apartment.id %}">link</a>
+            <a href="{% url 'signle-ad' db_name=apartment.en_db_name ad_id=apartment.id %}" class="link-box">
 
             <div class="box-agahi">
                 <div class="row row-agahi">
@@ -51,6 +51,8 @@
                     </div>
                 </div>
             </div>
+
+            </a>
         {% endfor %}
 
         <nav aria-label="Page navigation example">
