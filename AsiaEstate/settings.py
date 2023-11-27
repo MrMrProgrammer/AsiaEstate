@@ -58,7 +58,9 @@ INSTALLED_APPS = [
     'ContacUs',
     'AboutUs',
 
-    'django.contrib.humanize',
+    'django_humanize',
+    'jalali_date',
+
 ]
 
 MIDDLEWARE = [
