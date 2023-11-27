@@ -353,3 +353,7 @@ hr{
         gap: 8px;
     }
 }
+
+.link-box {
+    text-decoration: none;
+}
