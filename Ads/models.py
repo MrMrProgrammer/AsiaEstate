@@ -157,11 +157,11 @@ class Apartment(models.Model):
 
     size = models.IntegerField(blank=True, null=True, verbose_name='متراژ')
 
-    have_Warehouse = models.BooleanField(blank=True, null=True, verbose_name='آیا انباری دارد ؟')
+    have_Warehouse = models.BooleanField(default=False, verbose_name='آیا انباری دارد ؟')
 
-    have_parking = models.BooleanField(blank=True, null=True, verbose_name='آیا پارکینگ دارد ؟')
+    have_parking = models.BooleanField(default=False, verbose_name='آیا پارکینگ دارد ؟')
 
-    have_balcony = models.BooleanField(blank=True, null=True, verbose_name='آیا بالکن دارد ؟')
+    have_balcony = models.BooleanField(default=False, verbose_name='آیا بالکن دارد ؟')
 
     adaptive = models.BooleanField(default=False, verbose_name='آیا قیمت توافقی است ؟')
 
