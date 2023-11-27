@@ -49,6 +49,10 @@ class Land(models.Model):
     totalPrice = models.BigIntegerField(blank=True, null=True,
                                         verbose_name='قیمت کل')
 
+    prepayment = models.BigIntegerField(blank=True, null=True, verbose_name='پیش پرداخت')
+
+    rent = models.BigIntegerField(blank=True, null=True, verbose_name='اجاره')
+
     address = models.TextField(blank=True, null=True, verbose_name='آدرس')
 
     description = models.TextField(blank=True, null=True, verbose_name='توضیحات')
@@ -172,6 +176,10 @@ class Apartment(models.Model):
 
     totalPrice = models.BigIntegerField(blank=True, null=True,
                                         verbose_name='قیمت کل')
+
+    prepayment = models.IntegerField(blank=True, null=True, verbose_name='پیش پرداخت')
+
+    rent = models.IntegerField(blank=True, null=True, verbose_name='اجاره')
 
     address = models.TextField(blank=True, null=True, verbose_name='آدرس')
 

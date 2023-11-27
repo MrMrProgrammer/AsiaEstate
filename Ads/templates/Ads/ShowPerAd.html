@@ -104,6 +104,22 @@
                                         </p>
                                     </div>
                                 {% endif %}
+
+                                {% if single_ad.prepayment %}
+                                    <div class="col-sm-12 col-6">
+                                        <p class="mb-0 d-flex price-span">
+                                            <span>پیش پرداخت :&#160;</span><span>{{ single_ad.prepayment|intcomma }}<small>{{ single_ad.currency.currency }}</small></span>
+                                        </p>
+                                    </div>
+                                {% endif %}
+
+                                {% if single_ad.rent %}
+                                    <div class="col-sm-12 col-6">
+                                        <p class="mb-0 d-flex price-span">
+                                            <span>اجاره :&#160;</span><span>{{ single_ad.rent|intcomma }}<small>{{ single_ad.currency.currency }}</small></span>
+                                        </p>
+                                    </div>
+                                {% endif %}
                             {% endif %}
 
                         </div>
@@ -139,22 +155,22 @@
                         </div>
                     {% endif %}
 
-                    {#                    <div class="col-sm-3 col-6 mt-sm-0 mt-2 details-item d-flex gap-2">#}
-                    {#                        <img src="{% static 'image/icons8-elevator-64.png' %}" alt="" width="25" height="25">#}
-                    {#                        <p class="mb-0 lh-lg">آسانسور</p>#}
-                    {#                    </div>#}
                 </div>
                 <hr>
             {% endif %}
 
-            <div class="tozihat">
-                <h5>توضیحات تکمیلی:</h5>
-                <small>
-                    {{ single_ad.description }}
-                </small>
-            </div>
-            <hr>
-            <p class="mb-0 mt-4 text-black-50 date">زمان ایجاد آگهی : {{ single_ad.dateTimeCreated|to_jalali:'%Y/%m/%d' }}</p>
+            {% if single_ad.description %}
+                <div class="tozihat">
+                    <h5>توضیحات تکمیلی:</h5>
+                    <small>
+                        {{ single_ad.description }}
+                    </small>
+                </div>
+                <hr>
+            {% endif %}
+
+            <p class="mb-0 mt-4 text-black-50 date">زمان ایجاد آگهی
+                : {{ single_ad.dateTimeCreated|to_jalali:'%Y/%m/%d' }}</p>
         </div>
         <div class="address mt-5 shadow-sm p-4 mb-5 bg-white">
             <p class="">آدرس: {{ single_ad.address }}</p>
