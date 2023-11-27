@@ -1,6 +1,6 @@
 @font-face {
     font-family: yekan;
-    src: url("../../fonts/iranyekanwebboldfanum.ttf");
+    src: url("../../font/iranyekanwebboldfanum.ttf");
 }
 body,h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, span, .popover, p, input{
     font-family: yekan, roboto, serif !important;
