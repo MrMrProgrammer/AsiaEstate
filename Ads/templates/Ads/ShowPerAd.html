@@ -1,6 +1,7 @@
 {% extends 'base/layout.html' %}
 {% load static %}
-{% load humanize %}
+{% load humanizelib %}
+{% load jalali_tags %}
 
 {% block headerLinks %}{% endblock %}
 
@@ -13,8 +14,6 @@
     <div class="col-lg-9 col-12">
         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner img-banner">
-
-                <p>{{ seprator|intcomma }}</p>
 
                 {% if single_ad.pic1 %}
                     <div class="carousel-item active h-100">
@@ -66,18 +65,20 @@
         </div>
         <div class="box-detail mt-5 shadow-sm p-4 mb-5 bg-white">
             <h5>{{ single_ad.title }}</h5>
-            دسته بندی : <p class="text-14 mt-3 text-gray-400 btn btn-outline-secondary">{{ single_ad.category.fa_category }}</p>
+            دسته بندی : <p
+                class="text-14 mt-3 text-gray-400 btn btn-outline-secondary">{{ single_ad.category.fa_category }}</p>
             <div class="size-price">
                 <div class="row d-flex align-items-center">
-                    <div class="col-xxl-9 col-xl-8 col-sm-7 col-12">
+
+                    <div class="col-xxl-9 col-xl-6 col-sm-7 col-12">
                         <div class="row  d-flex main-info">
-                            <p class="mb-0 col-xl-3 col-6">متراژ : {{ single_ad.size }} متر</p>
-                            <p class="mb-0 col-xl-3 col-6">تعداد اتاق: {{ single_ad.NumberOfRooms }}</p>
-{#                            <p class="mb-0 col-xl-3 col-6 mt-xl-0 mt-2">سن بنا: ۱۴سال</p>#}
-                            <p class="mb-0 col-xl-3 col-6 mt-xl-0 mt-2">طبقه: {{ single_ad.floor }}</p>
+                            <p class="mb-0 col-xl-4 col-6">متراژ : {{ single_ad.size }} متر</p>
+                            <p class="mb-0 col-xl-4 col-6">تعداد اتاق: {{ single_ad.NumberOfRooms }}</p>
+                            <p class="mb-0 col-xl-4 col-6 mt-xl-0 mt-2">طبقه: {{ single_ad.floor }}</p>
                         </div>
                     </div>
-                    <div class="col-xxl-3 col-xl-4 col-sm-5 col-12 mt-sm-0 mt-2 price d-flex flex-column">
+
+                    <div class="col-xxl-3 col-xl-6 col-sm-5 col-12 mt-sm-0 mt-2 price d-flex flex-column">
                         <div class="row">
                             {% if single_ad.adaptive %}
                                 <div class="col-sm-12 col-6">
@@ -91,7 +92,7 @@
                                     <div class="col-sm-12 col-6">
                                         <p class="mb-0 d-flex price-span">
                                             <span>قیمت متری :&#160;</span>
-                                            <span>{{ single_ad.PricePerMeter|intcomma }}<small>تومان</small></span>
+                                            <span>{{ single_ad.PricePerMeter|intcomma }}<small>{{ single_ad.currency.currency }}</small></span>
                                         </p>
                                     </div>
                                 {% endif %}
@@ -99,7 +100,7 @@
                                 {% if single_ad.totalPrice %}
                                     <div class="col-sm-12 col-6">
                                         <p class="mb-0 d-flex price-span">
-                                            <span>قیمت کل :&#160;</span><span>{{ single_ad.totalPrice|intcomma }}<small>تومان</small></span>
+                                            <span>قیمت کل :&#160;</span><span>{{ single_ad.totalPrice|intcomma }}<small>{{ single_ad.currency.currency }}</small></span>
                                         </p>
                                     </div>
                                 {% endif %}
@@ -107,6 +108,7 @@
 
                         </div>
                     </div>
+
                 </div>
             </div>
             <hr class="mt-3">
@@ -137,10 +139,10 @@
                         </div>
                     {% endif %}
 
-{#                    <div class="col-sm-3 col-6 mt-sm-0 mt-2 details-item d-flex gap-2">#}
-{#                        <img src="{% static 'image/icons8-elevator-64.png' %}" alt="" width="25" height="25">#}
-{#                        <p class="mb-0 lh-lg">آسانسور</p>#}
-{#                    </div>#}
+                    {#                    <div class="col-sm-3 col-6 mt-sm-0 mt-2 details-item d-flex gap-2">#}
+                    {#                        <img src="{% static 'image/icons8-elevator-64.png' %}" alt="" width="25" height="25">#}
+                    {#                        <p class="mb-0 lh-lg">آسانسور</p>#}
+                    {#                    </div>#}
                 </div>
                 <hr>
             {% endif %}
@@ -152,7 +154,7 @@
                 </small>
             </div>
             <hr>
-            <p class="mb-0 mt-4 text-black-50 date">زمان ایجاد آگهی : {{ single_ad.dateTimeCreated }}</p>
+            <p class="mb-0 mt-4 text-black-50 date">زمان ایجاد آگهی : {{ single_ad.dateTimeCreated|to_jalali:'%Y/%m/%d' }}</p>
         </div>
         <div class="address mt-5 shadow-sm p-4 mb-5 bg-white">
             <p class="">آدرس: {{ single_ad.address }}</p>
