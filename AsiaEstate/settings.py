@@ -57,6 +57,8 @@ INSTALLED_APPS = [
     'Gallery',
     'ContacUs',
     'AboutUs',
+
+    'django.contrib.humanize',
 ]
 
 MIDDLEWARE = [
