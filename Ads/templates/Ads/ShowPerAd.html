@@ -1,146 +1,172 @@
 {% extends 'base/layout.html' %}
 {% load static %}
+{% load humanize %}
 
 {% block headerLinks %}{% endblock %}
 
-{% block pageTitle %}{% endblock %}
+{% block pageTitle %}
+    {{ single_ad.title }}
+{% endblock %}
 
 {% block main %}
 
-            <div class="col-lg-9 col-12">
-            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner img-banner">
+    <div class="col-lg-9 col-12">
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner img-banner">
 
-                    {% if single_ad.pic1 %}
-                        <div class="carousel-item active h-100">
-                            <img src="{{ single_ad.pic1.url }}" class="d-block w-100 h-100 object-fit-cover" alt="...">
-                        </div>
-                    {% endif %}
+                <p>{{ seprator|intcomma }}</p>
 
-                    {% if single_ad.pic2 %}
-                        <div class="carousel-item h-100">
-                            <img src="{{ single_ad.pic2.url }}" class="d-block w-100 h-100 object-fit-cover" alt="...">
-                        </div>
-                    {% endif %}
+                {% if single_ad.pic1 %}
+                    <div class="carousel-item active h-100">
+                        <img src="{{ single_ad.pic1.url }}" class="d-block w-100 h-100 object-fit-cover" alt="...">
+                    </div>
+                {% endif %}
 
-                    {% if single_ad.pic3 %}
-                        <div class="carousel-item h-100">
-                            <img src="{{ single_ad.pic3.url }}" class="d-block w-100 h-100 object-fit-cover" alt="...">
-                        </div>
-                    {% endif %}
+                {% if single_ad.pic2 %}
+                    <div class="carousel-item h-100">
+                        <img src="{{ single_ad.pic2.url }}" class="d-block w-100 h-100 object-fit-cover" alt="...">
+                    </div>
+                {% endif %}
 
-                    {% if single_ad.pic4 %}
-                        <div class="carousel-item h-100">
-                            <img src="{{ single_ad.pic4.url }}" class="d-block w-100 h-100 object-fit-cover" alt="...">
-                        </div>
-                    {% endif %}
+                {% if single_ad.pic3 %}
+                    <div class="carousel-item h-100">
+                        <img src="{{ single_ad.pic3.url }}" class="d-block w-100 h-100 object-fit-cover" alt="...">
+                    </div>
+                {% endif %}
 
-                    {% if single_ad.pic5 %}
-                        <div class="carousel-item h-100">
-                            <img src="{{ single_ad.pic5.url }}" class="d-block w-100 h-100 object-fit-cover" alt="...">
-                        </div>
-                    {% endif %}
+                {% if single_ad.pic4 %}
+                    <div class="carousel-item h-100">
+                        <img src="{{ single_ad.pic4.url }}" class="d-block w-100 h-100 object-fit-cover" alt="...">
+                    </div>
+                {% endif %}
 
-                    {% if single_ad.pic6 %}
-                        <div class="carousel-item h-100">
-                            <img src="{{ single_ad.pic6.url }}" class="d-block w-100 h-100 object-fit-cover" alt="...">
-                        </div>
-                    {% endif %}
+                {% if single_ad.pic5 %}
+                    <div class="carousel-item h-100">
+                        <img src="{{ single_ad.pic5.url }}" class="d-block w-100 h-100 object-fit-cover" alt="...">
+                    </div>
+                {% endif %}
 
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
+                {% if single_ad.pic6 %}
+                    <div class="carousel-item h-100">
+                        <img src="{{ single_ad.pic6.url }}" class="d-block w-100 h-100 object-fit-cover" alt="...">
+                    </div>
+                {% endif %}
+
             </div>
-              <div class="box-detail mt-5 shadow-sm p-4 mb-5 bg-white">
-                <h5>فروش 80 متر،دو خواب کم</h5>
-                <p class="text-14 mt-3 text-gray-400">خرید و فروش آپارتمان </p>
-                <div class="size-price">
-                  <div class="row d-flex align-items-center">
-                  <div class="col-xxl-9 col-xl-8 col-sm-7 col-12">
-                      <div class="row  d-flex main-info">
-                        <p class="mb-0 col-xl-3 col-6">متراژ:۱۴۴ متر</p>
-                        <p class="mb-0 col-xl-3 col-6">تعداد اتاق: ۲</p>
-                        <p class="mb-0 col-xl-3 col-6 mt-xl-0 mt-2">سن بنا: ۱۴سال</p>
-                        <p class="mb-0 col-xl-3 col-6 mt-xl-0 mt-2">طبقه: ۱/۳</p>
-                      </div>
-                  </div>
-                  <div class="col-xxl-3 col-xl-4 col-sm-5 col-12 mt-sm-0 mt-2 price d-flex flex-column">
-                    <div class="row">
-                        <div class="col-sm-12 col-6">
-                          <p class="mb-0 d-flex price-span">
-                            <span>قیمت:</span>
-                            <span>
-                              7,250,000,000
-                              <small>تومان</small>
-                            </span>
-                          </p>
-                        </div>
-                        <div class="col-sm-12 col-6">
-                          <p class="mb-0 d-flex price-span">
-                            <span>
-                              قیمت متری:
-                            </span>
-                            <span>
-                              85,294,000
-                            <small>تومان</small>
-                            </span>
-                          </p>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                    data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                    data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+        <div class="box-detail mt-5 shadow-sm p-4 mb-5 bg-white">
+            <h5>{{ single_ad.title }}</h5>
+            دسته بندی : <p class="text-14 mt-3 text-gray-400 btn btn-outline-secondary">{{ single_ad.category.fa_category }}</p>
+            <div class="size-price">
+                <div class="row d-flex align-items-center">
+                    <div class="col-xxl-9 col-xl-8 col-sm-7 col-12">
+                        <div class="row  d-flex main-info">
+                            <p class="mb-0 col-xl-3 col-6">متراژ : {{ single_ad.size }} متر</p>
+                            <p class="mb-0 col-xl-3 col-6">تعداد اتاق: {{ single_ad.NumberOfRooms }}</p>
+{#                            <p class="mb-0 col-xl-3 col-6 mt-xl-0 mt-2">سن بنا: ۱۴سال</p>#}
+                            <p class="mb-0 col-xl-3 col-6 mt-xl-0 mt-2">طبقه: {{ single_ad.floor }}</p>
                         </div>
                     </div>
-                 </div>
-                 </div>
-                 </div>
-                 <hr class="mt-3">
-                 <h5>تجهیزات و امکانات</h5>
+                    <div class="col-xxl-3 col-xl-4 col-sm-5 col-12 mt-sm-0 mt-2 price d-flex flex-column">
+                        <div class="row">
+                            {% if single_ad.adaptive %}
+                                <div class="col-sm-12 col-6">
+                                    <p class="mb-0 d-flex price-span">
+                                        <span>قیمت : </span>
+                                        <span>توافقی</span>
+                                    </p>
+                                </div>
+                            {% else %}
+                                {% if single_ad.PricePerMeter %}
+                                    <div class="col-sm-12 col-6">
+                                        <p class="mb-0 d-flex price-span">
+                                            <span>قیمت متری :&#160;</span>
+                                            <span>{{ single_ad.PricePerMeter|intcomma }}<small>تومان</small></span>
+                                        </p>
+                                    </div>
+                                {% endif %}
+
+                                {% if single_ad.totalPrice %}
+                                    <div class="col-sm-12 col-6">
+                                        <p class="mb-0 d-flex price-span">
+                                            <span>قیمت کل :&#160;</span><span>{{ single_ad.totalPrice|intcomma }}<small>تومان</small></span>
+                                        </p>
+                                    </div>
+                                {% endif %}
+                            {% endif %}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="mt-3">
+
+            {% if single_ad.have_Warehouse or single_ad.have_parking or single_ad.have_balcony %}
+                <h5>تجهیزات و امکانات</h5>
                 <div class="row mt-4 d-flex">
-                <div class="col-sm-3 col-6 details-item d-flex gap-2">
-                <img src="images/icons8-warehouse-64.png" alt="" width="25" height="25">
-                <p class="mb-0 lh-lg">انباری</p>
-                </div>
-                <div class="col-sm-3 col-6 details-item d-flex gap-2">
-                <img src="images/icons8-garage-50.png" alt="" width="25" height="25">
-                <p class="mb-0 lh-lg">پارکینگ</p>
-                </div>
-                <div class="col-sm-3 col-6 mt-sm-0 mt-2 details-item d-flex gap-2">
-                <img src="images/icons8-balcony-50.png" alt="" width="25" height="25">
-                <p class="mb-0 lh-lg">بالکن</p>
-                </div>
-                <div class="col-sm-3 col-6 mt-sm-0 mt-2 details-item d-flex gap-2">
-                  <img src="images/icons8-elevator-64.png" alt="" width="25" height="25">
-                  <p class="mb-0 lh-lg">آسانسور</p>
-                  </div>
+
+                    {% if single_ad.have_Warehouse %}
+                        <div class="col-sm-3 col-6 details-item d-flex gap-2">
+                            <img src="{% static 'image/icons8-warehouse-64.png' %}" alt="" width="25" height="25">
+                            <p class="mb-0 lh-lg">انباری</p>
+                        </div>
+                    {% endif %}
+
+                    {% if single_ad.have_parking %}
+                        <div class="col-sm-3 col-6 details-item d-flex gap-2">
+                            <img src="{% static 'image/icons8-garage-50.png' %}" alt="" width="25" height="25">
+                            <p class="mb-0 lh-lg">پارکینگ</p>
+                        </div>
+                    {% endif %}
+
+
+                    {% if single_ad.have_balcony %}
+                        <div class="col-sm-3 col-6 mt-sm-0 mt-2 details-item d-flex gap-2">
+                            <img src="{% static 'image/icons8-balcony-50.png' %}" alt="" width="25" height="25">
+                            <p class="mb-0 lh-lg">بالکن</p>
+                        </div>
+                    {% endif %}
+
+{#                    <div class="col-sm-3 col-6 mt-sm-0 mt-2 details-item d-flex gap-2">#}
+{#                        <img src="{% static 'image/icons8-elevator-64.png' %}" alt="" width="25" height="25">#}
+{#                        <p class="mb-0 lh-lg">آسانسور</p>#}
+{#                    </div>#}
                 </div>
                 <hr>
-                <div class="tozihat">
+            {% endif %}
+
+            <div class="tozihat">
                 <h5>توضیحات تکمیلی:</h5>
-                  <small>
-                  سالن پرده خور
-                  <br>ویو ابدی کوه
-                  <br> دسترسی به شاهراه های اصلی
-                  <br>شوتینگ زباله
-                  <br>روف گاردن
-                  </small>
-                  </div>
-                  <hr>
-                <p class="mb-0 mt-4 text-black-50 date">زمان ایجاد آگهی:۱۴۰۰/۸/۱۲</p>
-              </div>
-              <div class="address mt-5 shadow-sm p-4 mb-5 bg-white">
-                <p class="">آدرس: چیتگر بلوار کوهک خیابان نسیم شانزدهم</p>
-                <div class="location-map d-flex gap-1">
-                  <img src="images/icons8-map-64 (2).png" alt="" width="25" height="25">
-                  <p>آدرس در نقشه:</p>
-                </div>
-                <div class="d-flex justify-content-center">
-                  <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3150.704171710978!2d51.252243768687414!3d35.73712953205727!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2s!4v1700178093604!5m2!1sen!2s" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
-              </div>
+                <small>
+                    {{ single_ad.description }}
+                </small>
+            </div>
+            <hr>
+            <p class="mb-0 mt-4 text-black-50 date">زمان ایجاد آگهی : {{ single_ad.dateTimeCreated }}</p>
         </div>
+        <div class="address mt-5 shadow-sm p-4 mb-5 bg-white">
+            <p class="">آدرس: {{ single_ad.address }}</p>
+            <div class="location-map d-flex gap-1">
+                <img src="{% static 'image/icons8-map-64 (2).png' %}" alt="" width="25" height="25">
+                <p>آدرس در نقشه:</p>
+            </div>
+            <div class="d-flex justify-content-center">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3150.704171710978!2d51.252243768687414!3d35.73712953205727!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2s!4v1700178093604!5m2!1sen!2s"
+                        width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </div>
 {% endblock %}
 
 {% block site_description %}
