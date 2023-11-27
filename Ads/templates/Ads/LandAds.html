@@ -16,6 +16,8 @@
 
         {% for land in lands %}
 
+            <a href="{% url 'signle-ad' db_name=land.en_db_name ad_id=land.id %}" class="link-box">
+
             <div class="box-agahi">
                 <div class="row row-agahi">
                     <div class="col-lg-9 col-8 text">
@@ -50,6 +52,9 @@
                     </div>
                 </div>
             </div>
+
+            </a>
+
         {% endfor %}
 
         <nav aria-label="Page navigation example">
