@@ -142,9 +142,12 @@ def show_single_ad(requesst, db_name, ad_id):
 
     footer_data = FooterData.objects.filter(is_active=True).last()
 
+    seprator = 10000
+
     context = {
         'single_ad': single_ad,
         'FooterData': footer_data,
+        'seprator' : seprator,
     }
 
     return render(requesst, 'Ads/ShowPerAd.html', context)
