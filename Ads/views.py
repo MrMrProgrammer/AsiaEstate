@@ -40,19 +40,20 @@ def all_ads(request):
     except EmptyPage:
         ads = paginator.page(paginator.num_pages)
 
+    category = 'AllAds'
+
     context = {
-        # 'lands': lands,
-        # 'villas': villas,
-        # 'apartments': apartments,
         'all_ads': ads,
         'FooterData': footer_data,
+        'category': category,
+
     }
 
-    return render(request, 'Ads/AllAds.html', context)
+    return render(request, 'Ads/AdsList.html', context)
 
 
 def show_land_ads(request):
-    lands = Land.objects.all().order_by('-id')
+    lands = Land.objects.all().order_by('-priority', '-id')
 
     footer_data = FooterData.objects.filter(is_active=True).last()
 
@@ -68,16 +69,19 @@ def show_land_ads(request):
     except EmptyPage:
         ads = paginator.page(paginator.num_pages)
 
+    category = 'Land'
+
     context = {
-        'lands': ads,
+        'all_ads': ads,
         'FooterData': footer_data,
+        'category': category,
     }
 
-    return render(request, 'Ads/LandAds.html', context)
+    return render(request, 'Ads/AdsList.html', context)
 
 
 def show_villa_ads(request):
-    villas = Villa.objects.all().order_by('-id')
+    villas = Villa.objects.all().order_by('priority', '-id')
 
     footer_data = FooterData.objects.filter(is_active=True).last()
 
@@ -93,16 +97,19 @@ def show_villa_ads(request):
     except EmptyPage:
         ads = paginator.page(paginator.num_pages)
 
+    category = 'Villa'
+
     context = {
-        'villas': ads,
+        'all_ads': ads,
         'FooterData': footer_data,
+        'category': category,
     }
 
-    return render(request, 'Ads/VillaAds.html', context)
+    return render(request, 'Ads/AdsList.html', context)
 
 
 def show_apartment_ads(request):
-    apartments = Apartment.objects.all().order_by('-id')
+    apartments = Apartment.objects.all().order_by('priority', '-id')
 
     footer_data = FooterData.objects.filter(is_active=True).last()
 
@@ -118,12 +125,15 @@ def show_apartment_ads(request):
     except EmptyPage:
         ads = paginator.page(paginator.num_pages)
 
+    category = 'Apartment'
+
     context = {
-        'apartments': ads,
+        'all_ads': ads,
         'FooterData': footer_data,
+        'category': category,
     }
 
-    return render(request, 'Ads/ApartmentAds.html', context)
+    return render(request, 'Ads/AdsList.html', context)
 
 
 def show_single_ad(requesst, db_name, ad_id):
@@ -147,7 +157,7 @@ def show_single_ad(requesst, db_name, ad_id):
     context = {
         'single_ad': single_ad,
         'FooterData': footer_data,
-        'seprator' : seprator,
+        'seprator': seprator,
     }
 
     return render(requesst, 'Ads/ShowPerAd.html', context)

@@ -1,0 +1,175 @@
+{% extends 'base/layout.html' %}
+{% load static %}
+{% load humanizelib %}
+
+{% block headerLinks %}{% endblock %}
+
+{% block pageTitle %}{% endblock %}
+
+{% block main %}
+    <div class="col-md-9 col-12 agahiha">
+
+        <div class="buttons">
+            <a href="{% url 'AllAds' %}"
+               class="btn {% if category == 'AllAds' %}btn-success{% else %}btn-outline-success{% endif %}">همه</a>
+            <a href="{% url 'showLandAds' %}"
+               class="btn {% if category == 'Land' %}btn-success{% else %}btn-outline-success{% endif %}">زمین</a>
+            <a href="{% url 'showVillaAds' %}"
+               class="btn {% if category == 'Villa' %}btn-success{% else %}btn-outline-success{% endif %}">ویلا</a>
+            <a href="{% url 'showApartmentAds' %}"
+               class="btn {% if category == 'Apartment' %}btn-success{% else %}btn-outline-success{% endif %}">آپارتمان</a>
+        </div>
+
+        {% for ad in all_ads %}
+
+            <a href="{% url 'signle-ad' db_name=ad.en_db_name ad_id=ad.id %}" class="link-box">
+
+                <div class="box-agahi">
+                    <div class="row row-agahi">
+                        <div class="col-lg-9 col-8 text">
+                            <div class="information">
+
+                                {% if ad.title %}
+                                    <p>عنوان : <span>{{ ad.title }}</span></p>
+                                {% endif %}
+
+                                {% if ad.adaptive %}
+                                    <p>مبلغ :<span class="mablagh">توافقی</span></p>
+                                {% else %}
+
+                                    {% if ad.totalPrice %}
+                                        <p>مبلغ :<span
+                                                class="mablagh">{{ ad.totalPrice|intcomma }}</span>{% if ad.currency %}
+                                            {{ ad.currency }}{% endif %}</p>
+                                    {% endif %}
+
+                                    {% if ad.totalPrice %}
+                                        <p>مبلغ کل :<span
+                                                class="mablagh">{{ ad.totalPrice|intcomma }}</span>{% if ad.currency %}{{ ad.currency }}{% endif %}</p>
+                                    {% endif %}
+
+                                    {% if ad.PricePerMeter %}
+                                        <p>مبلغ هر متر :<span
+                                                class="mablagh">{{ ad.PricePerMeter|intcomma }}</span>{% if ad.currency %}{{ ad.currency }}{% endif %}</p>
+                                    {% endif %}
+
+                                    {% if ad.prepayment %}
+                                        <p>پیش پرداخت :<span
+                                                class="mablagh">{{ ad.prepayment|intcomma }}</span>{% if ad.currency %}{{ ad.currency }}{% endif %}</p>
+                                    {% endif %}
+
+                                    {% if ad.rent %}
+                                        <p>اجاره :<span
+                                                class="mablagh">{{ ad.rent|intcomma }}</span>{% if ad.currency %}{{ ad.currency }}{% endif %}</p>
+                                    {% endif %}
+
+                                {% endif %}
+
+
+                                {% if ad.size %}
+                                    <p>متراژ : {{ ad.size }} متر</p>
+                                {% endif %}
+
+                                {% if ad.address %}
+                                    <p class="address">
+                                        <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                width="16"
+                                                height="16"
+                                                fill="currentColor"
+                                                class="bi bi-geo-alt"
+                                                viewBox="0 0 16 16"
+                                        >
+                                            <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"/>
+                                            <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                                        </svg>
+                                        {{ ad.address }}
+                                    </p>
+                                {% endif %}
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-4 d-flex photo-box">
+                            <div class="photo-agahi">
+                                <img
+                                        src="{{ ad.pic1.url }}"
+                                        alt="{{ ad.title }}"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </a>
+        {% endfor %}
+
+        <nav aria-label="Page navigation example">
+            <ul class="pagination page-number">
+
+                {% if all_ads.has_previous %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ all_ads.previous_page_number }}" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+
+                {% endif %}
+
+                {% for pageNumber in all_ads.paginator.page_range %}
+                    <li class="page-item">
+                        <a class="page-link {% if all_ads.number == pageNumber %}page_active{% endif %}"
+                           href="?page={{ pageNumber }}"
+                           {% if all_ads.number == pageNumber %}style="color: white; background-color: #0a660a" {% endif %}>{{ pageNumber }} </a>
+                    </li>
+                {% endfor %}
+
+                {% if all_ads.has_next %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ all_ads.next_page_number }}" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                {% endif %}
+            </ul>
+        </nav>
+
+    </div>
+{% endblock %}
+
+{#-------------------------------------------------------#}
+
+{% block site_description %}
+    {{ FooterData.site_description }}
+{% endblock %}
+
+{% block address %}
+    {{ FooterData.address }}
+{% endblock %}
+
+{% block location %}
+    {{ FooterData.location }}
+{% endblock %}
+
+{% block footer_logo %}
+    {{ FooterData.site_logo.url }}
+{% endblock %}
+
+{% block phone_number %}
+    {{ FooterData.phone_number }}
+{% endblock %}
+
+{% block landline_phone %}
+    {{ FooterData.landline_phone }}
+{% endblock %}
+
+{% block instagram %}
+    {{ FooterData.instagram }}
+{% endblock %}
+
+{% block telegram %}
+    {{ FooterData.telegram }}
+{% endblock %}
+
+{% block whatsapp %}
+    {{ FooterData.whatsapp }}
+{% endblock %}
