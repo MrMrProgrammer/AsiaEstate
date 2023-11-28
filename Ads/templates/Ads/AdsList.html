@@ -38,12 +38,6 @@
                                 {% else %}
 
                                     {% if ad.totalPrice %}
-                                        <p>مبلغ :<span
-                                                class="mablagh">{{ ad.totalPrice|intcomma }}</span>{% if ad.currency %}
-                                            {{ ad.currency }}{% endif %}</p>
-                                    {% endif %}
-
-                                    {% if ad.totalPrice %}
                                         <p>مبلغ کل :<span
                                                 class="mablagh">{{ ad.totalPrice|intcomma }}</span>{% if ad.currency %}{{ ad.currency }}{% endif %}</p>
                                     {% endif %}
@@ -91,10 +85,13 @@
 
                         <div class="col-lg-3 col-4 d-flex photo-box">
                             <div class="photo-agahi">
-                                <img
-                                        src="{{ ad.pic1.url }}"
-                                        alt="{{ ad.title }}"
-                                />
+
+                                {% if ad.pic1 %}
+                                    <img src="{{ ad.pic1.url }}" alt="{{ ad.title }}" />
+                                {% else %}
+                                    <img src="{% static 'image/icons8-home-512.png' %}"/>
+                                {% endif %}
+
                             </div>
                         </div>
                     </div>
