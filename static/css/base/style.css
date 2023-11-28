@@ -80,6 +80,10 @@ body,h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, span, .popover, p, in
     font-size: 15px;
     color: rgb(53, 50, 50);
     padding: 10px;
+
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 .box-agahi:hover{
   box-shadow:0 0.5rem 1rem rgba(0,0,0,.15);
