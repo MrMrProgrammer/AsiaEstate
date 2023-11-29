@@ -100,7 +100,10 @@ WSGI_APPLICATION = 'AsiaEstate.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        # 'NAME': BASE_DIR / 'db.sqlite3',
+
+        'NAME': '/usr/src/app/db/db.sqlite3',
+
     }
 }
 

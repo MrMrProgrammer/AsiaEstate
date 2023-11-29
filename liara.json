@@ -1,0 +1,12 @@
+{
+    "disks": [
+      {
+        "name": "disk",
+        "mountTo": "uploads"
+      },
+      {
+        "name": "database",
+        "mountTo": "db"
+      }
+    ]
+  }
