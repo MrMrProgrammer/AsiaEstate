@@ -100,6 +100,12 @@
             </a>
         {% endfor %}
 
+        {% if all_ads|length == 1  %}
+            {% for i in "12345678" %}
+                <br/>
+            {% endfor %}
+        {% endif %}
+
         <nav aria-label="Page navigation example">
             <ul class="pagination page-number">
 
