@@ -15,11 +15,14 @@
         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner img-banner">
 
-                {% if single_ad.pic1 %}
-                    <div class="carousel-item active h-100">
-                        <img src="{{ single_ad.pic1.url }}" class="d-block w-100 h-100 object-fit-cover" alt="...">
-                    </div>
-                {% endif %}
+                <a href="{{ single_ad.pic1.url }}">
+                    {% if single_ad.pic1 %}
+                        <div class="carousel-item active h-100">
+                            <img src="{{ single_ad.pic1.url }}" class="d-block w-100 h-100 object-fit-cover" alt="...">
+                        </div>
+                    {% endif %}
+                </a>
+
 
                 {% if single_ad.pic2 %}
                     <div class="carousel-item h-100">
