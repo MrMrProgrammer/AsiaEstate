@@ -8,6 +8,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.http import HttpResponseNotFound
 
 
+
 def all_ads(request):
     lands = Land.objects.all()
     villas = Villa.objects.all()
