@@ -144,6 +144,8 @@ STATICFILES_DIRS = [
     BASE_DIR / "static"
 ]
 
+
+# MEDIA_ROOT = '/usr/src/app/uploads'
 MEDIA_ROOT = BASE_DIR / 'uploads'
 MEDIA_URL = '/photos/'
 
