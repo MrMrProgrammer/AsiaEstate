@@ -15,56 +15,67 @@
         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner img-banner">
 
-                <a href="{{ single_ad.pic1.url }}">
-                    {% if single_ad.pic1 %}
+                {% if single_ad.pic1 %}
+                    <a href="{{ single_ad.pic1.url }}">
                         <div class="carousel-item active h-100">
                             <img src="{{ single_ad.pic1.url }}" class="d-block w-100 h-100 object-fit-cover" alt="...">
                         </div>
-                    {% endif %}
-                </a>
-
+                    </a>
+                {% endif %}
 
                 {% if single_ad.pic2 %}
-                    <div class="carousel-item h-100">
-                        <img src="{{ single_ad.pic2.url }}" class="d-block w-100 h-100 object-fit-cover" alt="...">
-                    </div>
+                    <a href="{{ single_ad.pic2.url }}">
+                        <div class="carousel-item h-100">
+                            <img src="{{ single_ad.pic2.url }}" class="d-block w-100 h-100 object-fit-cover" alt="...">
+                        </div>
+                    </a>
                 {% endif %}
 
                 {% if single_ad.pic3 %}
-                    <div class="carousel-item h-100">
-                        <img src="{{ single_ad.pic3.url }}" class="d-block w-100 h-100 object-fit-cover" alt="...">
-                    </div>
+                    <a href="{{ single_ad.pic3.url }}">
+                        <div class="carousel-item h-100">
+                            <img src="{{ single_ad.pic3.url }}" class="d-block w-100 h-100 object-fit-cover" alt="...">
+                        </div>
+                    </a>
                 {% endif %}
 
                 {% if single_ad.pic4 %}
-                    <div class="carousel-item h-100">
-                        <img src="{{ single_ad.pic4.url }}" class="d-block w-100 h-100 object-fit-cover" alt="...">
-                    </div>
+                    <a href="{{ single_ad.pic4.url }}">
+                        <div class="carousel-item h-100">
+                            <img src="{{ single_ad.pic4.url }}" class="d-block w-100 h-100 object-fit-cover" alt="...">
+                        </div>
+                    </a>
                 {% endif %}
 
                 {% if single_ad.pic5 %}
-                    <div class="carousel-item h-100">
-                        <img src="{{ single_ad.pic5.url }}" class="d-block w-100 h-100 object-fit-cover" alt="...">
-                    </div>
+                    <a href="{{ single_ad.pic5.url }}">
+                        <div class="carousel-item h-100">
+                            <img src="{{ single_ad.pic5.url }}" class="d-block w-100 h-100 object-fit-cover" alt="...">
+                        </div>
+                    </a>
                 {% endif %}
 
                 {% if single_ad.pic6 %}
-                    <div class="carousel-item h-100">
-                        <img src="{{ single_ad.pic6.url }}" class="d-block w-100 h-100 object-fit-cover" alt="...">
-                    </div>
+                    <a href="{{ single_ad.pic6.url }}">
+                        <div class="carousel-item h-100">
+                            <img src="{{ single_ad.pic6.url }}" class="d-block w-100 h-100 object-fit-cover" alt="...">
+                        </div>
+                    </a>
                 {% endif %}
-
             </div>
+
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
                     data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Previous</span>
             </button>
+
             <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
                     data-bs-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Next</span>
             </button>
+
         </div>
         <div class="box-detail mt-5 shadow-sm p-4 mb-5 bg-white">
 
