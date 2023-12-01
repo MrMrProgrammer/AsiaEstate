@@ -12,20 +12,28 @@
     <div class="col-md-9 text-center">
         <div class="row">
             {% for image in images %}
-
-                <div class="col-md-4">
-                    <div class="image-box">
-                        <img class="img" src="{{ image.image.url }}">
-                        <br/>
-                        <br/>
-                        {% if image.description %}
-                            <p>{{ image.description }}</p>
-                        {% endif %}
+                <a href="{{ image.image.url }}" style="display: contents; color: black">
+                    <div class="col-md-4">
+                        <div class="image-box" style="margin: 2px">
+                            <img class="img" src="{{ image.image.url }}">
+                            <br/>
+                            <br/>
+                            {% if image.description %}
+                                <p>{{ image.description }}</p>
+                            {% endif %}
+                        </div>
                     </div>
-                </div>
+                </a>
+
 
             {% endfor %}
         </div>
+
+        {% if images|length <= 3 %}
+            {% for i in "1234567" %}
+                <br/>
+            {% endfor %}
+        {% endif %}
 
         <div class="row">
             <div class="col-12">
@@ -34,7 +42,8 @@
 
                         {% if images.has_previous %}
                             <li class="page-item">
-                                <a class="page-link" href="?page={{ images.previous_page_number }}" aria-label="Previous">
+                                <a class="page-link" href="?page={{ images.previous_page_number }}"
+                                   aria-label="Previous">
                                     <span aria-hidden="true">&laquo;</span>
                                 </a>
                             </li>
@@ -43,7 +52,9 @@
 
                         {% for pageNumber in images.paginator.page_range %}
                             <li class="page-item">
-                                <a class="page-link {% if images.number == pageNumber %}page_active{% endif %}" href="?page={{ pageNumber }}" {% if images.number == pageNumber %}style="color: white; background-color: #0a660a" {% endif %}>{{ pageNumber }} </a>
+                                <a class="page-link {% if images.number == pageNumber %}page_active{% endif %}"
+                                   href="?page={{ pageNumber }}"
+                                   {% if images.number == pageNumber %}style="color: white; background-color: #0a660a" {% endif %}>{{ pageNumber }} </a>
                             </li>
                         {% endfor %}
 
