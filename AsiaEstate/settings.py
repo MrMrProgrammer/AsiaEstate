@@ -100,8 +100,8 @@ WSGI_APPLICATION = 'AsiaEstate.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-        # 'NAME': '/usr/src/app/db/db.sqlite3',
+        # 'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': '/usr/src/app/db/db.sqlite3',
 
     }
 }
@@ -145,8 +145,8 @@ STATICFILES_DIRS = [
 ]
 
 
-# MEDIA_ROOT = '/usr/src/app/uploads'
-MEDIA_ROOT = BASE_DIR / 'uploads'
+MEDIA_ROOT = '/usr/src/app/uploads'
+# MEDIA_ROOT = BASE_DIR / 'uploads'
 MEDIA_URL = '/photos/'
 
 # Default primary key field type
