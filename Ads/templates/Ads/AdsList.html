@@ -104,6 +104,10 @@
             {% for i in "12345678" %}
                 <br/>
             {% endfor %}
+        {% elif all_ads|length <= 1 %}
+            {% for i in "12345678910111213" %}
+                <br/>
+            {% endfor %}
         {% endif %}
 
         <nav aria-label="Page navigation example">
