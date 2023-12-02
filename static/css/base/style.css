@@ -174,7 +174,8 @@ body,h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, span, .popover, p, in
     }
 }
 .img-banner{
-    height: 338px;
+    /*height: 338px;*/
+    height: 500px;
     border-radius: 15px;
 }
 .img-banner .carousel-item img{
