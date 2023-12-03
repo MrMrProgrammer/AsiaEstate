@@ -7,11 +7,13 @@ from . import models
 class ShowGallery(admin.ModelAdmin):
     list_display = ["__str__", 'description', 'is_active']
     list_editable = ['is_active']
+    list_filter = ["is_active"]
 
 
 class ShowGallerySetting(admin.ModelAdmin):
     list_display = ["pagination", 'is_active']
     list_editable = ['is_active']
+    list_filter = ["is_active"]
 
 
 admin.site.register(models.Gallery, ShowGallery)
