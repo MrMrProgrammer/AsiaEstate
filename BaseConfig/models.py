@@ -4,18 +4,18 @@ from django.db import models
 # Create your models here.
 
 class FooterData(models.Model):
-    site_description = models.CharField(max_length=500, null=True, blank=True)
-    site_logo = models.ImageField(upload_to='footer/site_logo', null=True, blank=True)
-    address = models.CharField(max_length=200, null=True, blank=True)
-    location = models.CharField(max_length=500, null=True, blank=True)
-    phone_number = models.CharField(max_length=200, null=True, blank=True)
-    landline_phone = models.CharField(max_length=200, null=True, blank=True)
-    instagram = models.CharField(max_length=200, null=True, blank=True)
-    telegram = models.CharField(max_length=200, null=True, blank=True)
-    whatsapp = models.CharField(max_length=200, null=True, blank=True)
-    per_page_item = models.IntegerField(default=10)
+    site_description = models.CharField(max_length=500, null=True, blank=True, verbose_name='توضیحات سایت')
+    site_logo = models.ImageField(upload_to='footer/site_logo', null=True, blank=True, verbose_name='لوگوسایت')
+    address = models.CharField(max_length=200, null=True, blank=True, verbose_name='آدرس')
+    location = models.CharField(max_length=500, null=True, blank=True, verbose_name='موقعیت در نقشه')
+    phone_number = models.CharField(max_length=200, null=True, blank=True, verbose_name='تلفن همراه')
+    landline_phone = models.CharField(max_length=200, null=True, blank=True, verbose_name='تلفن ثابت')
+    instagram = models.CharField(max_length=200, null=True, blank=True, verbose_name='اینستاگرام')
+    telegram = models.CharField(max_length=200, null=True, blank=True, verbose_name='تلگرام')
+    whatsapp = models.CharField(max_length=200, null=True, blank=True, verbose_name='واتس اپ')
+    per_page_item = models.IntegerField(default=10, verbose_name='تعداد آگهی در هر صفحه')
 
-    is_active = models.BooleanField(default=True)
+    is_active = models.BooleanField(default=True, verbose_name='فعال / غیرفعال')
 
     class Meta:
         db_table = 'FooterData'
@@ -24,9 +24,9 @@ class FooterData(models.Model):
 
 
 class HomeData(models.Model):
-    home_description = models.CharField(max_length=500, null=True, blank=True)
+    home_description = models.CharField(max_length=500, null=True, blank=True, verbose_name='توضیحات در صفحه اصلی')
 
-    is_active = models.BooleanField(default=True)
+    is_active = models.BooleanField(default=True, verbose_name='فعال / غیرفعال')
 
     class Meta:
         db_table = 'HomeData'
@@ -35,9 +35,9 @@ class HomeData(models.Model):
 
 
 class SliderImage(models.Model):
-    image = models.ImageField(upload_to='Slider')
+    image = models.ImageField(upload_to='Slider', verbose_name='تصویر اسلایدر')
 
-    is_active = models.BooleanField(default=True)
+    is_active = models.BooleanField(default=True, verbose_name='فعال / غیرفعال')
 
     class Meta:
         db_table = 'SliderImage'
