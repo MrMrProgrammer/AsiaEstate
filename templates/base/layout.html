@@ -86,19 +86,19 @@
                     </div>
                     <img src="{% static 'image/icons8-phone-100 (2).png' %}" alt="" width="32" height="32">
                 </div>
+
                 <div class="social-media d-flex justify-content-end pe-2 gap-2">
-                    <a href="{% block instagram %}{% endblock %}">
+                    <a href="https://www.instagram.com/{% block instagram %}{% endblock %}" target="_blank">
                         <img src="{% static 'image/icons8-instagram-50 (1).png' %}" alt="" width="35" height="35">
                     </a>
 
-                    <a href="{% block telegram %}{% endblock %}">
+                    <a href="https://t.me/{% block telegram %}{% endblock %}" target="_blank">
                         <img src="{% static 'image/icons8-telegram-50.png' %}" alt="" width="35" height="35">
                     </a>
 
-                    <a href="{% block whatsapp %}{% endblock %}">
+                    <a href="https://wa.me/{% block whatsapp %}{% endblock %}" target="_blank">
                         <img src="{% static 'image/icons8-whatsapp-50.png' %}" alt="" width="35" height="35">
                     </a>
-
                 </div>
             </div>
         </div>
