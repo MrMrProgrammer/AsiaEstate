@@ -218,15 +218,28 @@
                         <p>آدرس در نقشه:</p>
                     </div>
 
-                    <div class="d-flex justify-content-center">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3150.704171710978!2d51.252243768687414!3d35.73712953205727!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2s!4v1700178093604!5m2!1sen!2s"
-                            width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade">
-                        </iframe>
+                    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner" style="border-radius: 15px; height: 300px; border: 1px solid #0a660a;">
+                            <a href="{{ single_ad.location }}" target="_blank">
+                                <div class="carousel-item active h-100">
+                                    <img src="{% static 'image/map.png' %}" class="d-block w-100 h-100 object-fit-cover" alt="map">
+                                </div>
+                            </a>
+                        </div>
                     </div>
+{#                    <div class="box-detail mt-5 shadow-sm p-4 mb-5 bg-white">#}
+
+
+{#                    <div class="d-flex justify-content-center">#}
+{#                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3150.704171710978!2d51.252243768687414!3d35.73712953205727!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2s!4v1700178093604!5m2!1sen!2s"#}
+{#                            width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"#}
+{#                            referrerpolicy="no-referrer-when-downgrade">#}
+{#                        </iframe>#}
+{#                    </div>#}
+
                 {% endif %}
 
-            </div>
+{#            </div>#}
         {% endif %}
 
     </div>
