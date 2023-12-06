@@ -20,6 +20,8 @@ from django.conf.urls.static import static
 from django.conf import settings
 from BaseConfig.views import custom_404
 
+from django.views.static import serve 
+
 admin.site.site_title = "پنل ادمین املاک آسیا"
 admin.site.site_header = "پنل ادمین املاک آسیا"
 admin.site.index_title = ""
@@ -27,6 +29,10 @@ admin.site.index_title = ""
 handler404 = 'BaseConfig.views.custom_404'
 
 urlpatterns = [
+
+    RE_path(r'^media/(?P<path>.*)$', serve,{'document_root': settings.MEDIA_ROOT}), 
+    path(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}), 
+
     path('admin/', admin.site.urls),
     path('', include('BaseConfig.urls')),
     path('Ads/', include('Ads.urls')),

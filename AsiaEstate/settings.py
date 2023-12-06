@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-44f0%)y9dz@!m7j+9pf(8haf+%r-te*&zz0imc9rj8%=z$7k=f'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
@@ -100,8 +100,8 @@ WSGI_APPLICATION = 'AsiaEstate.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        # 'NAME': BASE_DIR / 'db.sqlite3',
-        'NAME': '/usr/src/app/DB/db.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+        # 'NAME': '/usr/src/app/DB/db.sqlite3',
 
     }
 }
@@ -140,13 +140,15 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-STATICFILES_DIRS = [
-    BASE_DIR / "static"
-]
+# STATICFILES_DIRS = [
+#     BASE_DIR / "static"
+# ]
+
+STATIC_ROOT = BASE_DIR / 'static'
 
 
-MEDIA_ROOT = '/usr/src/app/uploads'
-# MEDIA_ROOT = BASE_DIR / 'uploads'
+# MEDIA_ROOT = '/usr/src/app/uploads'
+MEDIA_ROOT = BASE_DIR / 'uploads'
 MEDIA_URL = '/photos/'
 
 # Default primary key field type
