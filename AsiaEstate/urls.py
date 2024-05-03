@@ -29,10 +29,6 @@ admin.site.index_title = ""
 handler404 = 'BaseConfig.views.custom_404'
 
 urlpatterns = [
-
-    RE_path(r'^media/(?P<path>.*)$', serve,{'document_root': settings.MEDIA_ROOT}), 
-    path(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}), 
-
     path('admin/', admin.site.urls),
     path('', include('BaseConfig.urls')),
     path('Ads/', include('Ads.urls')),
